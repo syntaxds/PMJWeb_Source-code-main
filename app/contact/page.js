@@ -34,21 +34,21 @@ export default function Contact() {
   }
 
   return (
-    <div>
+    <div className="pt-[100px] md:pt-[120px]"> {/* Add top padding for navbar */}
       {/* Hero */}
-      <section className="bg-black text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
+      <section className="bg-black text-white py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-gray-300">Get in touch with our team</p>
         </div>
       </section>
 
       {/* Contact Info & Form */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div>
+            <div className="lg:sticky lg:top-[140px] lg:self-start"> {/* Make contact info sticky on desktop */}
               <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
               <p className="text-gray-600 mb-8">
                 Have questions about our services? Want to discuss a project? We'd love to hear from you. Reach out to us using the contact information below or fill out the form.
@@ -97,7 +97,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gray-50 p-8">
+            <div className="bg-gray-50 p-6 md:p-8 rounded-xl">
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -206,7 +206,7 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="h-96 bg-gray-300">
+      <section className="h-[400px] md:h-[500px] bg-gray-300">
         <div className="w-full h-full flex items-center justify-center text-gray-600">
           <div className="text-center">
             <MapPin size={48} className="mx-auto mb-4" />

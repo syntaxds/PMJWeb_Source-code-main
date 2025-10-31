@@ -1,15 +1,16 @@
 'use client'
 
-import { Ship, Trees, Leaf } from 'lucide-react'
+import { Ship, Trees, Leaf, Linkedin, Instagram } from 'lucide-react'
+import Image from 'next/image'
 
 export default function About() {
   return (
-    <div>
+    <div className="pt-[100px] md:pt-[120px]"> {/* Add top padding for navbar */}
       {/* Hero */}
-      <section className="bg-black text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">About Us</h1>
-          <p className="text-xl text-gray-300">Your trusted partner in logistics, woodchip, and biomass</p>
+      <section className="bg-black text-white py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
+          <p className="text-xl text-gray-300">Let us introduce ourself</p>
         </div>
       </section>
 
@@ -90,33 +91,150 @@ export default function About() {
           <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
             Meet the dedicated professionals behind PT Padas Mustapa Jaya's success.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
             {/* Team Member 1 */}
             <div className="text-center">
-              <div className="w-full aspect-[4/5] bg-gradient-to-br from-gray-400 to-gray-300 mb-4" />
-              <h3 className="text-xl font-bold mb-1">Budi Santoso</h3>
-              <p className="text-red-600 mb-2">CEO / Founder</p>
-              <p className="text-gray-600 text-sm">
-                Leading the company with over 20 years of experience in logistics and biomass industries.
-              </p>
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/bod-mandiri5.jpg"
+                  alt="Derryl Sipahutar"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">Derryl Sipahutar</h3>
+              <p className="text-red-600 mb-2">Commissioner</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/derryl-sipahutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/derryl" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
             </div>
             {/* Team Member 2 */}
             <div className="text-center">
-              <div className="w-full aspect-[4/5] bg-gradient-to-br from-gray-500 to-gray-400 mb-4" />
-              <h3 className="text-xl font-bold mb-1">Siti Rahayu</h3>
-              <p className="text-red-600 mb-2">Operations Director</p>
-              <p className="text-gray-600 text-sm">
-                Ensuring seamless operations and quality control across all our production facilities.
-              </p>
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/bod-mandiri.jpg"
+                  alt="Lasmaria Sidabutar"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">Lasmaria Sidabutar</h3>
+              <p className="text-red-600 mb-2">Director</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
             </div>
             {/* Team Member 3 */}
             <div className="text-center">
-              <div className="w-full aspect-[4/5] bg-gradient-to-br from-gray-600 to-gray-500 mb-4" />
-              <h3 className="text-xl font-bold mb-1">Ahmad Wijaya</h3>
-              <p className="text-red-600 mb-2">Logistics Manager</p>
-              <p className="text-gray-600 text-sm">
-                Managing our shipping operations and ensuring timely delivery to clients worldwide.
-              </p>
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/bod-mandiri1.jpg" 
+                  alt="J. Harimurti Priambodo"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">J. Harimurti Priambodo</h3>
+              <p className="text-red-600 mb-2">Project Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/harimurti" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/harimurti" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            {/* Team Member 4 */}
+            <div className="text-center">
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/bod-mandiri2.png" 
+                  alt="Dahlan Sipahutar"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">Dahlan Sipahutar</h3>
+              <p className="text-red-600 mb-2">Logistic Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            {/* Team Member 5 */}
+            <div className="text-center">
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/bod-mandiri3.jpg" 
+                  alt="Mulianus"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">Mulianus</h3>
+              <p className="text-red-600 mb-2">PR & Legal Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            {/* Team Member 6 */}
+            <div className="text-center">
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/bod-mandiri4.jpg" 
+                  alt="Name Placeholder"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">Name Placeholder</h3>
+              <p className="text-red-600 mb-2">Mill Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

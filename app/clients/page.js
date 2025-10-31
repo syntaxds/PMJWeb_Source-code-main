@@ -109,7 +109,7 @@ export default function Clients() {
     return () => clearInterval(interval)
   }, [isDragging])
 
-  // Auto-rotate column 1 every 3 seconds
+  // Auto-rotate column 1 every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setColumn1Blink(true)
@@ -117,7 +117,7 @@ export default function Clients() {
         setColumn1Index((prevIndex) => (prevIndex + 3) % testimonials.length)
         setColumn1Blink(false)
       }, 300)
-    }, 3000)
+    }, 6000)
     return () => clearInterval(interval)
   }, [testimonials.length])
 
@@ -195,12 +195,12 @@ export default function Clients() {
   )
 
   return (
-    <div>
+    <div className="pt-[100px] md:pt-[120px]"> {/* Add top padding for navbar */}
       {/* Hero */}
-      <section className="bg-black text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">Our Clients</h1>
-          <p className="text-xl text-gray-300">Trusted by leading companies worldwide</p>
+      <section className="bg-black text-white py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Clients</h1>
+          <p className="text-xl text-gray-300">Trusted bla bla blaa</p>
         </div>
       </section>
 

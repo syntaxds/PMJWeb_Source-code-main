@@ -1,6 +1,6 @@
 'use client'
 
-import { Search } from 'lucide-react'
+import { Search, Instagram, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -12,19 +12,35 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">FIND US</h3>
             <div className="space-y-2 text-gray-300">
               <p className="font-semibold">Address</p>
-              <p>Jakarta, Indonesia</p>
-              <p className="mt-4 font-semibold">Hours</p>
+              <p>Bekasi, Indonesia</p>
+              <p className="mt-4 font-semibold">Office Hours</p>
               <p>Monday-Friday: 9:00AM-5:00PM</p>
-              <p>Saturday & Sunday: 10:00AM-3:00PM</p>
             </div>
           </div>
 
-          {/* About This Site */}
+          {/* Social Media */}
           <div>
-            <h3 className="text-xl font-bold mb-4">ABOUT THIS SITE</h3>
-            <p className="text-gray-300">
-              This site is a great place to introduce yourself and your site, or include some credits.
-            </p>
+            <h3 className="text-xl font-bold mb-4">SOCIAL MEDIA</h3>
+            <div className="space-y-4 text-gray-300">
+              <a
+                href="https://www.instagram.com/pmj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-red-600 transition-colors"
+              >
+                <Instagram size={20} />
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/pmj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-red-600 transition-colors"
+              >
+                <Linkedin size={20} />
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
 
           {/* Search */}

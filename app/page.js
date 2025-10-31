@@ -2,24 +2,32 @@
 
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Home() {
   return (
     <div>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600" />
+        <Image
+          src="/home.jpg"
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover"
+          quality={100}
+        />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Deliver. Produce. Sustain.
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+            PT PADAS MUSTAPA JAYA
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            PT Padas Mustapa Jaya is your trusted partner in logistics, woodchip production, and sustainable biomass solutions.
+          <p className="text-xl md:text-2xl mb-8 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+            We are your trusted partner in logistics, woodchip production, and sustainable biomass solutions.
           </p>
           <Link
-            href="/services"
-            className="inline-block border-2 border-white px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300"
+            href="/about"
+            className="inline-block border-2 border-white px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]"
           >
             Learn More
           </Link>
@@ -99,7 +107,7 @@ export default function Home() {
                 href="/about"
                 className="inline-block border-2 border-black px-8 py-3 hover:bg-black hover:text-white transition-colors duration-300"
               >
-                ABOUT US
+                Explore more
               </Link>
             </div>
             <div className="h-96 bg-gradient-to-br from-gray-600 to-gray-400" />
