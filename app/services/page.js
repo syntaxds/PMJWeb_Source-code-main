@@ -18,12 +18,15 @@ export default function Services() {
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-3xl font-bold mb-6">What We Offer</h2>
           <p className="text-gray-600 text-lg">
-            PT Padas Mustapa Jaya is the perfect solution to meet your logistics, woodchip production, and biomass needs. We provide end-to-end services with a commitment to quality, reliability, and sustainability.
+            At PT Padas Mustapa Jaya, we are committed to providing comprehensive, high-quality, and
+reliable services across logistics, heavy equipment rental, and harvesting operations.
+Our solutions are designed to support business efficiency, operational safety, and long-term
+productivity for our clients across various industries.
           </p>
         </div>
       </section>
 
-      {/* Service 1: Logistics & Shipping */}
+      {/* Service 1: Logistics*/}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -31,9 +34,12 @@ export default function Services() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-6">
                 <Ship size={32} />
               </div>
-              <h2 className="text-4xl font-bold mb-6">Logistics & Shipping</h2>
+              <h2 className="text-4xl font-bold mb-6">Logistics Solution</h2>
               <p className="text-gray-600 mb-4">
-                Our logistics division provides comprehensive shipping solutions for bulk cargo, containerized goods, and specialized transport. We operate a modern fleet and work with trusted partners worldwide.
+                We offer integrated logistics services that ensure the smooth and timely movement of goods.
+Our logistics operations are supported by professional management systems, experienced
+personnel, and a strong commitment to reliability and precision. We strive to deliver seamless transport and distribution that meet industry standards and
+client expectations.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
@@ -59,7 +65,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Service 2: Woodchip Production */}
+      {/* Service 2: Heavy Equipment */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -68,9 +74,12 @@ export default function Services() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-black text-white rounded-full mb-6">
                 <TreeDeciduous size={32} />
               </div>
-              <h2 className="text-4xl font-bold mb-6">Woodchip Production</h2>
+              <h2 className="text-4xl font-bold mb-6">Heavy Equipment Rental</h2>
               <p className="text-gray-600 mb-4">
-                We operate advanced woodchip production facilities that process timber into high-quality woodchips for various industrial applications, including pulp and paper manufacturing, and biomass energy production.
+                Our heavy equipment rental services provide clients with access to a fleet of well-maintained,
+high-performance machinery suitable for construction, plantation, and industrial operations.
+Each unit is regularly inspected and operated by trained professionals to ensure efficiency,
+safety, and maximum uptime on every project.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
@@ -95,7 +104,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Service 3: Biomass Solutions */}
+      {/* Service 3: Harvesting Services*/}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -103,9 +112,12 @@ export default function Services() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-6">
                 <Zap size={32} />
               </div>
-              <h2 className="text-4xl font-bold mb-6">Biomass Solutions</h2>
+              <h2 className="text-4xl font-bold mb-6">Harvesting Services</h2>
               <p className="text-gray-600 mb-4">
-                Our biomass division provides sustainable energy solutions using organic materials. We supply biomass fuel products and offer consulting services for businesses transitioning to renewable energy sources.
+                We deliver professional harvesting services tailored to meet the specific needs of plantation
+and agricultural clients.
+With skilled manpower, modern tools, and strict quality control, we ensure every harvesting
+process is carried out efficiently, accurately, and on schedule.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">

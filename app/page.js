@@ -1,12 +1,53 @@
+
 'use client'
 
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import React, { useEffect, useState } from 'react';
 
 export default function Home() {
+  // Demo Banner State
+  const [showBanner, setShowBanner] = useState(true);
+  const [fade, setFade] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFade(true), 3000);
+    const removeTimer = setTimeout(() => setShowBanner(false), 6000);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
+
   return (
     <div>
+      {/* Demo Banner - Remove when development is finished */}
+      {showBanner && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'white',
+            color: 'black',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            fontWeight: 'bold',
+            fontSize: '2rem',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+            transition: 'opacity 1s',
+            opacity: fade ? 0 : 1,
+            pointerEvents: 'none',
+          }}
+        >
+          This is a Demo Version for PMJ Website V1.0 (syntaxds)
+        </div>
+      )}
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
         <Image
@@ -23,7 +64,9 @@ export default function Home() {
             PT PADAS MUSTAPA JAYA
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
-            We are your trusted partner in logistics, woodchip production, and sustainable biomass solutions.
+            Your trusted partner in logistics, heavy equipment rental, and harvesting services.
+With a strong commitment to quality, efficiency, and reliability, we provide integrated
+solutions that support your operational and project needs.
           </p>
           <Link
             href="/about"
@@ -39,15 +82,15 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4">Our Services</h2>
           <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            We provide comprehensive solutions across logistics, woodchip production, and biomass industries. Our expertise ensures quality and reliability in every project.
+            At PT Padas Mustapa Jaya, we deliver comprehensive and professional services designed
+to meet the demands of modern industries.
           </p>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Service 1 */}
             <div className="relative group overflow-hidden">
               <div className="h-96 bg-gradient-to-br from-red-900 to-red-700 flex items-end p-6">
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">Logistics & Shipping</h3>
+                  <h3 className="text-2xl font-bold mb-2">Logistics Solution</h3>
                   <Link
                     href="/services"
                     className="inline-flex items-center text-red-300 hover:text-white transition-colors"
@@ -62,7 +105,7 @@ export default function Home() {
             <div className="relative group overflow-hidden">
               <div className="h-96 bg-gradient-to-br from-gray-800 to-gray-600 flex items-end p-6">
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">Woodchip Production</h3>
+                  <h3 className="text-2xl font-bold mb-2">Heavy Equipment Rental</h3>
                   <Link
                     href="/services"
                     className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
@@ -77,7 +120,7 @@ export default function Home() {
             <div className="relative group overflow-hidden">
               <div className="h-96 bg-gradient-to-br from-red-700 to-black flex items-end p-6">
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">Biomass Solutions</h3>
+                  <h3 className="text-2xl font-bold mb-2">Harvesting Services</h3>
                   <Link
                     href="/services"
                     className="inline-flex items-center text-red-300 hover:text-white transition-colors"
@@ -98,10 +141,19 @@ export default function Home() {
             <div>
               <h2 className="text-4xl font-bold mb-6">ABOUT US</h2>
               <p className="text-gray-600 mb-6">
-                PT Padas Mustapa Jaya has been a leading force in the logistics and biomass industry for years. We specialize in efficient shipping solutions, sustainable woodchip production, and innovative biomass technologies.
+                PT Padas Mustapa Jaya is a dynamic company specializing in logistics, heavy equipment
+rental, and harvesting operations.
+Established with a vision to deliver excellence and reliability, we are committed to supporting
+our clients with practical solutions and exceptional service standards.
               </p>
               <p className="text-gray-600 mb-8">
-                Our commitment to quality, sustainability, and customer satisfaction drives everything we do. We work with clients worldwide to deliver exceptional results.
+                With a dedicated team of professionals, advanced equipment, and efficient operational
+systems, we aim to become a leading and trusted partner in Indonesia’s logistics and heavy
+equipment industry.
+              </p>
+              <p className="text-gray-600 mb-8">
+                At PT Padas Mustapa Jaya, we don’t just provide services, we deliver solutions that drive
+success.
               </p>
               <Link
                 href="/about"

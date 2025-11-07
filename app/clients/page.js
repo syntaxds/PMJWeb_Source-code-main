@@ -5,18 +5,37 @@ import { useState, useEffect, useRef } from 'react'
 
 export default function Clients() {
   const clients = [
-    { name: 'Pacific Shipping Co.', logo: 'PSC' },
-    { name: 'Global Timber Industries', logo: 'GTI' },
-    { name: 'EcoEnergy Solutions', logo: 'EES' },
-    { name: 'Asian Logistics Group', logo: 'ALG' },
-    { name: 'Green Biomass Corp', logo: 'GBC' },
-    { name: 'Maritime Transport Ltd', logo: 'MTL' },
-    { name: 'Ocean Freight Inc', logo: 'OFI' },
-    { name: 'Sustainable Wood Co', logo: 'SWC' },
-    { name: 'BioFuel Partners', logo: 'BFP' },
-    { name: 'Cargo Solutions Ltd', logo: 'CSL' },
-    { name: 'Timber Export Group', logo: 'TEG' },
-    { name: 'Renewable Resources', logo: 'RR' }
+    { name: 'PT. Dunia Septindo', logo: 'DS' },
+    { name: 'Astra Autopart', logo: 'AA' },
+    { name: 'PT. PLN EPI Indonesia', logo: 'PLN' },
+    { name: 'Taiyo Marsol Indonesia', logo: 'TMI' },
+    { name: 'PT. Riau Andalan Pulp and Paper', logo: 'RAPP' },
+    { name: 'PT. Sahid Detolin Textile', logo: 'SDT' },
+    { name: 'PT. Karya Mandiri', logo: 'KM' },
+    { name: 'PT. Siefa Kimia Mandiri', logo: 'SKM' },
+    { name: 'PT. Wahyu Abadi', logo: 'WA' },
+    { name: 'PT. Aneka Tusma', logo: 'AT' },
+    { name: 'PT. Citra Boga Pratama', logo: 'CBP' },
+    { name: 'PT. Prakarsa Etsa Utama', logo: 'PEU' },
+    { name: 'PT. Guna Era Manufacture', logo: 'GEM' },
+    { name: 'PT. Asata Utama', logo: 'AU' },
+    { name: 'PT. Energi Bima Sakti', logo: 'EBS' },
+    { name: 'PT. Rabihah', logo: 'RBH' },
+    { name: 'PT. Trafindo Perkasa Mom & Jo', logo: 'TP' },
+    { name: 'PT. Afrantek', logo: 'AFR' },
+    { name: 'PT. Ridean Pelabuhan', logo: 'RP' },
+    { name: 'PT. Lamindo Inter Multikon', logo: 'LIM' },
+    { name: 'PT. Pakuan Abadi Sejahtera', logo: 'PAS' },
+    { name: 'CV. Sindue Makmur Abadi', logo: 'SMA' },
+    { name: 'PT. MSK', logo: 'MSK' },
+    { name: 'PT. Cahaya Maritim Sejahtera', logo: 'CMS' },
+    { name: 'PT. Surya Buana Sentosa-JT Bulog', logo: 'SBS' },
+    { name: 'PT. Balikpapan Chip Lestari', logo: 'BCL' },
+    { name: 'PT. Itci Hutani Manunggal', logo: 'IHM' },
+    { name: 'PT. Borneo Hijau Lestari', logo: 'BHL' },
+    { name: 'PT. Mahakam Persada Sakti', logo: 'MPS' },
+    { name: 'PT. Laju Dinamika Utama', logo: 'LDU' },
+    { name: 'PT. Bumi Alam Raya', logo: 'BAR' }
   ]
 
   const testimonials = [
@@ -180,11 +199,6 @@ export default function Clients() {
         isBlink ? 'animate-red-blink' : ''
       }`}
     >
-      <div className="flex mb-4">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} size={20} className="text-red-600 fill-current" />
-        ))}
-      </div>
       <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
       <div className="border-t pt-4">
         <p className="font-bold">{testimonial.author}</p>
@@ -200,7 +214,7 @@ export default function Clients() {
       <section className="bg-black text-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center max-w-4xl"> 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Clients</h1>
-          <p className="text-xl text-gray-300">Trusted bla bla blaa</p>
+          <p className="text-xl text-gray-300">Trusted partners across leading industries worldwide</p>
         </div>
       </section>
 

@@ -17,32 +17,55 @@ export default function About() {
       {/* Company Overview */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-            <div>
-              <h2 className="text-4xl font-bold mb-6">Who We Are</h2>
-              <p className="text-gray-600 mb-4">
-                PT Padas Mustapa Jaya is a leading Indonesian company specializing in three core areas: logistics and shipping services, woodchip production, and biomass solutions.
-              </p>
-              <p className="text-gray-600 mb-4">
-                Founded with a vision to provide sustainable and efficient industrial solutions, we have grown to become a trusted name in our sectors. Our commitment to excellence, innovation, and environmental responsibility sets us apart.
-              </p>
-              <p className="text-gray-600">
-                With state-of-the-art facilities and a dedicated team of professionals, we serve clients both domestically and internationally, delivering quality products and services that exceed expectations.
+          {/* Who We Are */}
+          <div className="mb-20">
+            <div className="flex flex-col items-center">
+              <div className="w-full">
+                <div className="h-96 w-full max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-4rem)] lg:max-w-[calc(1200px*2+3rem)] mx-auto mb-8 rounded-xl bg-gradient-to-br from-red-600 to-black" />
+              </div>
+              <h2 className="text-4xl font-bold mb-6 text-center">Who We Are</h2>
+              
+            </div>
+            <div className="w-full max-w-5xl mx-auto">
+              <p className="text-gray-600 mb-4 text-center">
+                At PT Padas Mustapa Jaya, we move industries forward.
+We are a trusted partner in logistics, heavy equipment rental, and harvesting services,
+delivering efficient, reliable, and safe solutions for every project. With a team of experienced professionals and a commitment to excellence, we ensure that
+every operation runs seamlessly from the ground up to the finish line.
               </p>
             </div>
-            <div className="h-96 bg-gradient-to-br from-red-600 to-black" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="h-96 bg-gradient-to-br from-gray-700 to-gray-500 order-2 md:order-1" />
-            <div className="order-1 md:order-2">
-              <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
-              <p className="text-gray-600 mb-4">
-                To deliver exceptional logistics solutions and sustainable biomass products that drive industrial progress while protecting our environment for future generations.
+          {/* Vision & Mission - Combined Card Style */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch mb-20">
+            {/* Vision Card */}
+            <div className="bg-gray-50 rounded-xl shadow p-8 flex flex-col justify-center h-full">
+              <div className="flex items-center mb-4">
+                <span className="inline-flex items-center justify-center w-12 h-12 bg-red-600 text-white rounded-full mr-4">
+                  <Leaf size={28} />
+                </span>
+                <h2 className="text-3xl font-bold">Vision</h2>
+              </div>
+              <p className="text-gray-700 text-lg">
+                To become a leading and trusted partner in Indonesia’s logistics and heavy equipment
+industry, recognized for our reliability, innovation, and service excellence.
+
               </p>
-              <p className="text-gray-600">
-                We strive to be the preferred partner for businesses seeking reliable, efficient, and environmentally conscious solutions in shipping, woodchip production, and biomass energy.
-              </p>
+            </div>
+            {/* Mission Card */}
+            <div className="bg-gray-50 rounded-xl shadow p-8 flex flex-col justify-center h-full">
+              <div className="flex items-center mb-4">
+                <span className="inline-flex items-center justify-center w-12 h-12 bg-black text-white rounded-full mr-4">
+                  <Ship size={28} />
+                </span>
+                <h2 className="text-3xl font-bold">Mission</h2>
+              </div>
+              <ul className="space-y-3 text-gray-700 text-lg list-disc list-inside">
+                <li>To deliver high-quality, efficient, and safe operational solutions.</li>
+                <li>To build lasting partnerships through trust and consistent performance.</li>
+                <li>To enhance productivity with modern technology and skilled expertise.</li>
+                <li>To uphold integrity and professionalism in every aspect of our business.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -57,18 +80,27 @@ export default function About() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-4">
                 <Ship size={32} />
               </div>
+              <h3 className="text-2xl font-bold mb-4">Integrity</h3>
+              <p className="text-gray-600">
+                We operate with honesty, transparency, and accountability in every project.
+              </p>
+            </div>
+            <div className="text-center p-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-4">
+                <Ship size={32} />
+              </div>
               <h3 className="text-2xl font-bold mb-4">Reliability</h3>
               <p className="text-gray-600">
-                We deliver on our promises with consistent quality and timely service that our clients can depend on.
+                 Clients can trust us to deliver services on time and meet expectations consistently.
               </p>
             </div>
             <div className="text-center p-8">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-black text-white rounded-full mb-4">
                 <Trees size={32} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Sustainability</h3>
+              <h3 className="text-2xl font-bold mb-4">Excellence</h3>
               <p className="text-gray-600">
-                Environmental responsibility is at the heart of our operations, ensuring a greener future.
+                We pursue high standards in operations, equipment, and personnel.
               </p>
             </div>
             <div className="text-center p-8">
@@ -77,12 +109,32 @@ export default function About() {
               </div>
               <h3 className="text-2xl font-bold mb-4">Innovation</h3>
               <p className="text-gray-600">
-                We continuously improve our processes and adopt new technologies to serve you better.
+                We embrace technology and modern practices to improve efficiency and performance.
+              </p>
+            </div>
+            <div className="text-center p-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-4">
+                <Leaf size={32} />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Safety</h3>
+              <p className="text-gray-600">
+                Protecting our team, clients, and equipment is our top priority.
+              </p>
+            </div>
+            <div className="text-center p-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-4">
+                <Leaf size={32} />
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Customer Focus</h3>
+              <p className="text-gray-600">
+                Our clients needs guide our decisions and actions in every project.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      
 
       {/* Team Section */}
       <section className="py-20 bg-white">
