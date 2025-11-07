@@ -3,9 +3,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {},
   experimental: {
     serverComponentsExternalPackages: ['mongodb'],
+    turbo: {},
   },
   webpack(config, { dev }) {
     if (dev) {
@@ -16,10 +16,6 @@ const nextConfig = {
       };
     }
     return config;
-  },
-  onDemandEntries: {
-    maxInactiveAge: 10000,
-    pagesBufferLength: 2,
   },
   async headers() {
     return [
