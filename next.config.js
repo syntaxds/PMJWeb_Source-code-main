@@ -3,9 +3,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {}, // Add this line to fix the Vercel error
   experimental: {
-    // Remove if not using Server Components
     serverComponentsExternalPackages: ['mongodb'],
   },
   webpack(config, { dev }) {
