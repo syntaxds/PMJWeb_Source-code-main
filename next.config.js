@@ -5,18 +5,8 @@ const nextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ['mongodb'],
-    turbo: {},
   },
-  webpack(config, { dev }) {
-    if (dev) {
-      config.watchOptions = {
-        poll: 2000,
-        aggregateTimeout: 300,
-        ignored: ['**/node_modules'],
-      };
-    }
-    return config;
-  },
+  // Removed webpack config - not needed for production
   async headers() {
     return [
       {
