@@ -7,74 +7,89 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react';
 
 export default function Home() {
-  // Demo Banner State
-  const [showBanner, setShowBanner] = useState(true);
-  const [fade, setFade] = useState(false);
-
+  // Demo Banner State for hero flicker
+  const [showDemoBanner, setShowDemoBanner] = useState(true);
   useEffect(() => {
-    const timer = setTimeout(() => setFade(true), 3000);
-    const removeTimer = setTimeout(() => setShowBanner(false), 6000);
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(removeTimer);
-    };
+    const timer = setTimeout(() => setShowDemoBanner(false), 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div>
-      {/* Demo Banner - Remove when development is finished */}
-      {showBanner && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            background: 'white',
-            color: 'black',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 9999,
-            fontWeight: 'bold',
-            fontSize: '2rem',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-            transition: 'opacity 1s',
-            opacity: fade ? 0 : 1,
-            pointerEvents: 'none',
-          }}
-        >
-          This is a Demo Version for PMJ Website V1.0 (syntaxds)
-        </div>
-      )}
+      {/* Demo Banner above hero title (flicker, auto-hide after 5s) */}
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
-        <Image
-          src="/home.jpg"
-          alt="Hero Background"
-          fill
-          priority
-          className="object-cover"
-          quality={100}
+        <video
+          src="/video-sample.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+          {showDemoBanner && (
+            <div
+              className="inline-block px-4 py-2 mb-4 rounded-lg font-bold text-black"
+              style={{
+                background: 'white',
+                animation: 'flicker 0.5s infinite',
+                fontSize: '1.1rem',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                letterSpacing: '1px',
+              }}
+            >
+              PMJ WEBSITE - DEMO VERSION 1.2 (syntaxds)
+            </div>
+          )}
+          <h1
+            className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] animate-hero-fade"
+            style={{
+              opacity: 0,
+              transform: 'translateY(40px)',
+              animation: 'fadeUp 1.2s ease-out 0.2s forwards',
+            }}
+          >
             PT PADAS MUSTAPA JAYA
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+          <p
+            className="text-xl md:text-1xl mb-8 text-gray-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] animate-hero-fade"
+            style={{
+              opacity: 0,
+              transform: 'translateY(40px)',
+              animation: 'fadeUp 1.2s ease-out 0.7s forwards',
+            }}
+          >
             Your trusted partner in logistics, heavy equipment rental, and harvesting services.
-With a strong commitment to quality, efficiency, and reliability, we provide integrated
-solutions that support your operational and project needs.
+            With a strong commitment to quality, efficiency, and reliability, we provide integrated
+            solutions that support your operational and project needs.
           </p>
           <Link
             href="/about"
-            className="inline-block border-2 border-white px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]"
+            className="inline-block border-2 border-white px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] animate-hero-fade"
+            style={{
+              opacity: 0,
+              transform: 'translateY(40px)',
+              animation: 'fadeUp 1.2s ease-out 1.2s forwards',
+            }}
           >
             Learn More
           </Link>
         </div>
+      {/* Animation keyframes for hero text and flicker banner */}
+      <style jsx global>{`
+        @keyframes fadeUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes flicker {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+      `}</style>
       </section>
 
       {/* Services Preview */}
@@ -164,20 +179,6 @@ success.
             </div>
             <div className="h-96 bg-gradient-to-br from-gray-600 to-gray-400" />
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-red-600 text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-4">Ready to Work With Us?</h2>
-          <p className="text-xl mb-8">Contact us today to discuss your logistics and biomass needs.</p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-red-600 px-8 py-3 font-semibold hover:bg-gray-100 transition-colors duration-300"
-          >
-            GET IN TOUCH
-          </Link>
         </div>
       </section>
     </div>
