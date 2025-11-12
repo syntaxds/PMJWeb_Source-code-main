@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div>
-      {/* Demo Banner above hero title (flicker, auto-hide after 5s) */}
+      {/* Demo Banner above hero title */}
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
         <video
