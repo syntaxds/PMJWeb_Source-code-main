@@ -6,10 +6,12 @@ export default function Services() {
   return (
     <div className="pt-[100px] md:pt-[120px]"> {/* Add top padding for navbar */}
       {/* Hero */}
-      <section className="bg-black text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center max-w-4xl"> 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-          <p className="text-xl text-gray-300">Comprehensive solution for your industrial needs</p>
+      <section
+        className="relative text-white py-16 md:py-24 bg-[url('/materi/hero-bg.jpg')] bg-cover bg-center"
+        style={{ backgroundImage: "url('/materi/PMJ-AREA-125.jpg')" }}>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Services</h1>
         </div>
       </section>
 

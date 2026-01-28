@@ -2,30 +2,30 @@
 
 import { Ship, Trees, Leaf, Linkedin, Instagram } from 'lucide-react'
 import Image from 'next/image'
+import AboutCarousel from '../../components/AboutCarousel'
 
 export default function About() {
   return (
-    <div className="pt-[100px] md:pt-[120px]"> {/* Add top padding for navbar */}
+    <div className="pt-[100px] md:pt-[120px]">
       {/* Hero */}
-      <section className="bg-black text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center max-w-4xl"> 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-          <p className="text-xl text-gray-300">Let us introduce ourself</p>
+      <section
+        className="relative text-white py-16 md:py-24 bg-[url('/materi/hero-bg.jpg')] bg-cover bg-center"
+        style={{ backgroundImage: "url('/materi/PMJ-AREA-84.jpg')" }}>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Company</h1>
         </div>
       </section>
 
       {/* Company Overview */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4b">
           {/* Who We Are */}
           <div className="mb-20">
             <div className="flex flex-col items-center">
-              <div className="w-full">
-                <div className="h-96 w-full max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-4rem)] lg:max-w-[calc(1200px*2+3rem)] mx-auto mb-8 rounded-xl bg-gradient-to-br from-red-600 to-black" />
-              </div>
-              <h2 className="text-4xl font-bold mb-6 text-center">Who We Are</h2>
-              
+              <AboutCarousel />
             </div>
+
             <div className="w-full max-w-5xl mx-auto">
               <p className="text-gray-600 mb-4 text-center">
                 At PT Padas Mustapa Jaya, we move industries forward.
@@ -47,7 +47,7 @@ every operation runs seamlessly from the ground up to the finish line.
                 <h2 className="text-3xl font-bold">Vision</h2>
               </div>
               <p className="text-gray-700 text-lg">
-                To become a leading and trusted partner in Indonesia’s logistics and heavy equipment
+                To become a leading and trusted partner in Indonesia's logistics and heavy equipment
 industry, recognized for our reliability, innovation, and service excellence.
 
               </p>
@@ -138,44 +138,22 @@ industry, recognized for our reliability, innovation, and service excellence.
 
       {/* Team Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4">Our Team</h2>
+        <div className="blur-sm">
+          <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-4">The Team</h2>
           <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
             Meet the dedicated professionals behind PT Padas Mustapa Jaya's success.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
-            {/* Team Member 1 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/bod-mandiri5.jpg"
-                  alt="Derryl Sipahutar"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-l font-bold mb-1">Derryl Sipahutar</h3>
-              <p className="text-red-600 mb-2">Commissioner</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/derryl-sipahutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/derryl" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            
             {/* Team Member 2 */}
             <div className="text-center">
               <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
                 <Image 
-                  src="/team/bod-mandiri.jpg"
+                  src="/team/Derryl-Sipahutar.png"
                   alt="Lasmaria Sidabutar"
                   fill
-                  className="object-cover"
+                  className="object-cover blur-sm"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -196,10 +174,10 @@ industry, recognized for our reliability, innovation, and service excellence.
             <div className="text-center">
               <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
                 <Image 
-                  src="/team/bod-mandiri1.jpg" 
+                  src="/team/Derryl-Sipahutar.png" 
                   alt="J. Harimurti Priambodo"
                   fill
-                  className="object-cover"
+                  className="object-cover blur-sm"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -220,15 +198,15 @@ industry, recognized for our reliability, innovation, and service excellence.
             <div className="text-center">
               <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
                 <Image 
-                  src="/team/bod-mandiri2.png" 
+                  src="/team/Derryl-Sipahutar.png" 
                   alt="Dahlan Sipahutar"
                   fill
-                  className="object-cover"
+                  className="object-cover blur-sm"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <h3 className="text-l font-bold mb-1">Dahlan Sipahutar</h3>
-              <p className="text-red-600 mb-2">Logistic Manager</p>
+              <p className="text-red-600 mb-2">Transport & HED Managaer</p>
               <div className="flex justify-center gap-4 mb-3">
                 <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-600 hover:text-red-600 transition-colors">
@@ -244,15 +222,15 @@ industry, recognized for our reliability, innovation, and service excellence.
             <div className="text-center">
               <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
                 <Image 
-                  src="/team/bod-mandiri3.jpg" 
+                  src="/team/Derryl-Sipahutar.png" 
                   alt="Mulianus"
                   fill
-                  className="object-cover"
+                  className="object-cover blur-sm"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-              <h3 className="text-l font-bold mb-1">Mulianus</h3>
-              <p className="text-red-600 mb-2">PR & Legal Manager</p>
+              <h3 className="text-l font-bold mb-1">Darwin Pasaribu</h3>
+              <p className="text-red-600 mb-2">Wood Supply Manager</p>
               <div className="flex justify-center gap-4 mb-3">
                 <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-600 hover:text-red-600 transition-colors">
@@ -268,10 +246,82 @@ industry, recognized for our reliability, innovation, and service excellence.
             <div className="text-center">
               <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
                 <Image 
-                  src="/team/bod-mandiri4.jpg" 
+                  src="/team/Derryl-Sipahutar.png" 
                   alt="Name Placeholder"
                   fill
-                  className="object-cover"
+                  className="object-cover blur-sm"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">M. Mulianus</h3>
+              <p className="text-red-600 mb-2">PR & Legal Compliance Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            {/* Team Member 7 */}
+            <div className="text-center">
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/Derryl-Sipahutar.png" 
+                  alt="Name Placeholder"
+                  fill
+                  className="object-cover blur-sm"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">LS</h3>
+              <p className="text-red-600 mb-2">HR & GA Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            {/* Team Member 8 */}
+            <div className="text-center">
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/Derryl-Sipahutar.png" 
+                  alt="Name Placeholder"
+                  fill
+                  className="object-cover blur-sm"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <h3 className="text-l font-bold mb-1">LS</h3>
+              <p className="text-red-600 mb-2">FAT Manager</p>
+              <div className="flex justify-center gap-4 mb-3">
+                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-red-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            {/* Team Member 6 */}
+            <div className="text-center">
+              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                <Image 
+                  src="/team/Derryl-Sipahutar.png" 
+                  alt="Name Placeholder"
+                  fill
+                  className="object-cover blur-sm"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -289,6 +339,7 @@ industry, recognized for our reliability, innovation, and service excellence.
               </div>
             </div>
           </div>
+        </div>
         </div>
       </section>
     </div>

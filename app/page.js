@@ -101,26 +101,22 @@ export default function Home() {
 to meet the demands of modern industries.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="relative group overflow-hidden">
-              <div className="h-96 bg-gradient-to-br from-red-900 to-red-700 flex items-end p-6">
-                <div className="text-white">
+            {/* Service 1 - Logistics */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg">
+              <div className="relative h-96">
+                <Image 
+                  src="/materi/PMJ-AREA-73.jpg"
+                  alt="Logistics Solution"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="text-2xl font-bold mb-2">Logistics Solution</h3>
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center text-red-300 hover:text-white transition-colors"
-                  >
-                    Explore more <ArrowRight size={16} className="ml-2" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div className="relative group overflow-hidden">
-              <div className="h-96 bg-gradient-to-br from-gray-800 to-gray-600 flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">Heavy Equipment Rental</h3>
                   <Link
                     href="/services"
                     className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
@@ -131,14 +127,51 @@ to meet the demands of modern industries.
               </div>
             </div>
 
-            {/* Service 3 */}
-            <div className="relative group overflow-hidden">
-              <div className="h-96 bg-gradient-to-br from-red-700 to-black flex items-end p-6">
-                <div className="text-white">
+            {/* Service 2 - Heavy Equipment */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg">
+              <div className="relative h-96">
+                <Image 
+                  src="/materi/PMJ-AREA-59.jpg"
+                  alt="Heavy Equipment Rental"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Heavy Equipments</h3>
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
+                  >
+                    Explore more <ArrowRight size={16} className="ml-2" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Service 3 - Harvesting */}
+            <div className="relative group overflow-hidden rounded-lg shadow-lg">
+              <div className="relative h-96">
+                <Image 
+                  src="/materi/PMJ-AREA-75.jpg"
+                  alt="Harvesting Services"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="text-2xl font-bold mb-2">Harvesting Services</h3>
                   <Link
                     href="/services"
-                    className="inline-flex items-center text-red-300 hover:text-white transition-colors"
+                    className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
                   >
                     Explore more <ArrowRight size={16} className="ml-2" />
                   </Link>
@@ -177,7 +210,17 @@ success.
                 Explore more
               </Link>
             </div>
-            <div className="h-96 bg-gradient-to-br from-gray-600 to-gray-400" />
+            <div className="h-96 relative overflow-hidden shadow-lg group">
+              <Image 
+                  src="/materi/PMJ-AREA-105.jpg"
+                  alt="aboutprev"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            </div>
           </div>
         </div>
       </section>

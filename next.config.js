@@ -3,10 +3,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    serverComponentsExternalPackages: ['mongodb'],
-  },
-  // Removed webpack config - not needed for production
+  serverExternalPackages: ['mongodb'],
   async headers() {
     return [
       {
