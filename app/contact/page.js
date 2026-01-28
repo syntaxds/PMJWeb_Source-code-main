@@ -38,10 +38,12 @@ export default function Contact() {
   return (
     <div className="pt-[100px] md:pt-[120px]">
       {/* Hero */}
-      <section className="bg-black text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center max-w-4xl"> 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-gray-300">Get in touch with our team</p>
+      <section
+        className="relative text-white py-16 md:py-24 bg-[url('/materi/hero-bg.jpg')] bg-cover bg-center"
+        style={{ backgroundImage: "url('/materi/PMJ-AREA-74.jpg')" }}>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact</h1>
         </div>
       </section>
 
@@ -53,7 +55,7 @@ export default function Contact() {
             <div className="lg:sticky lg:top-[140px] lg:self-start">
               <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
               <p className="text-gray-600 mb-8">
-                Have questions about our services? Want to discuss a project? We'd love to hear from you. Reach out to us using the contact information below or fill out the form.
+                Have questions or Want to discuss a project? Reach out to us using the contact information below or fill out the form.
               </p>
 
               <div className="space-y-4">
@@ -62,9 +64,9 @@ export default function Contact() {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Address</h3>
-                    <p className="text-gray-600">Jakarta, Indonesia</p>
-                    <p className="text-gray-600">Jl. Example Street No. 123</p>
+                    <h3 className="font-bold text-lg mb-1">Address (HO)</h3>
+                    <p className="text-gray-600">Bekasi, Jawa Barat</p>
+                    <p className="text-gray-600">Grand Galaxy City Blok RSA 2 No. 19, Jakasetia Bekasi Selatan</p>
                   </div>
                 </div>
 
@@ -74,8 +76,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1">Phone</h3>
-                    <p className="text-gray-600">+62 21 1234 5678</p>
-                    <p className="text-gray-600">+62 812 3456 7890</p>
+                    <p className="text-gray-600">+62 21 38711145</p>
                   </div>
                 </div>
 
@@ -85,8 +86,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1">Email</h3>
-                    <p className="text-gray-600">info@padasmustapa.co.id</p>
-                    <p className="text-gray-600">sales@padasmustapa.co.id</p>
+                    <p className="text-gray-600">info@pmjsystem.com</p>
                   </div>
                 </div>
               </div>
@@ -100,14 +100,14 @@ export default function Contact() {
                 </div>
                 <div className="ml-13 space-y-1">
                   <p className="text-gray-700 font-medium">Monday - Friday: <span className="text-gray-600 font-normal">9:00 AM - 5:00 PM</span></p>
-                  <p className="text-gray-700 font-medium">Saturday & Sunday: <span className="text-gray-600 font-normal">10:00 AM - 3:00 PM</span></p>
+                  <p className="text-gray-700 font-medium">Saturday & Sunday: <span className="text-gray-600 font-normal">None</span></p>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="bg-gray-50 p-6 md:p-8 rounded-xl shadow-sm">
-              <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold mb-6">Contact Form</h2>
               <div className="space-y-5">
                 <div>
                   <label className="block text-sm font-semibold mb-2" htmlFor="name">
@@ -182,10 +182,10 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all bg-white"
                   >
-                    <option value="">Select a service</option>
+                    <option value="Placeholder">Select inquiries</option>
                     <option value="logistics">Logistics & Shipping</option>
-                    <option value="woodchip">Woodchip Production</option>
-                    <option value="biomass">Biomass Solutions</option>
+                    <option value="woodchip">Heavy Equipment Rental</option>
+                    <option value="Manufacturing">Manufacturing</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -221,27 +221,27 @@ export default function Contact() {
       
       {/* Map Section */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900 text-center">How to Find Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Head Office Map */}
-            <div>
-              <h3 className="text-center text-xl font-bold mb-3 text-gray-900">Head Office - Bekasi</h3>
-              <div className="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-white">
-                <MapSection />
-              </div>
-            </div>
-            
-            {/* Site Office Map */}
-            <div>
-              <h3 className="text-center text-xl font-bold mb-3 text-gray-900">Site Office - Pontianak</h3>
-              <div className="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-white">
-                <MapSection />
-              </div>
-            </div>
-          </div>
+  <div className="container mx-auto px-4 max-w-7xl">
+    <h2 className="text-3xl font-bold mb-8 text-gray-900 text-center">Office Location</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Head Office Map */}
+      <div>
+        <h3 className="text-center text-xl font-bold mb-3 text-gray-900">Head Office - Bekasi</h3>
+        <div className="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-white">
+          <MapSection location="bekasi" />
         </div>
-      </section>
+      </div>
+      
+      {/* Site Office Map */}
+      <div>
+        <h3 className="text-center text-xl font-bold mb-3 text-gray-900">Site Office - Pontianak</h3>
+        <div className="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-white">
+          <MapSection location="pontianak" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   )
 }

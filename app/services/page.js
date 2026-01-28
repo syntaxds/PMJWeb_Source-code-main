@@ -1,6 +1,7 @@
 'use client'
 
 import { Ship, TreeDeciduous, Zap, ArrowRight } from 'lucide-react'
+import ServiceCarousel from '../../components/ServiceCarousel'
 
 export default function Services() {
   return (
@@ -62,7 +63,14 @@ client expectations.
                 </li>
               </ul>
             </div>
-            <div className="h-96 bg-gradient-to-br from-red-900 to-red-700" />
+            <ServiceCarousel
+              images={[
+                '/materi/services/logistic1.jpeg',
+                '/materi/services/logistic2.jpeg',
+                '/materi/services/logistic3.jpeg',
+                '/materi/services/logistic4.jpeg',
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -71,7 +79,15 @@ client expectations.
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="h-96 bg-gradient-to-br from-gray-800 to-gray-600 order-2 md:order-1" />
+            <ServiceCarousel
+              images={[
+                '/materi/services/he1.jpeg',
+                '/materi/services/he2.jpeg',
+                '/materi/services/equipment3.jpg',
+                '/materi/services/equipment4.jpg',
+              ]}
+              className="order-2 md:order-1"
+            />
             <div className="order-1 md:order-2">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-black text-white rounded-full mb-6">
                 <TreeDeciduous size={32} />
@@ -114,7 +130,7 @@ safety, and maximum uptime on every project.
               <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-6">
                 <Zap size={32} />
               </div>
-              <h2 className="text-4xl font-bold mb-6">Harvesting Services</h2>
+              <h2 className="text-4xl font-bold mb-6">Manufacturing</h2>
               <p className="text-gray-600 mb-4">
                 We deliver professional harvesting services tailored to meet the specific needs of plantation
 and agricultural clients.
@@ -124,23 +140,26 @@ process is carried out efficiently, accurately, and on schedule.
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
                   <ArrowRight className="text-red-600 mt-1 mr-2 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Biomass pellets and briquettes production</span>
+                  <span className="text-gray-600">Wood chipping and processing</span>
                 </li>
                 <li className="flex items-start">
                   <ArrowRight className="text-red-600 mt-1 mr-2 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Renewable energy consulting services</span>
+                  <span className="text-gray-600">Biomass pellets production</span>
                 </li>
                 <li className="flex items-start">
                   <ArrowRight className="text-red-600 mt-1 mr-2 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Carbon-neutral fuel alternatives</span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="text-red-600 mt-1 mr-2 flex-shrink-0" size={20} />
-                  <span className="text-gray-600">Custom biomass solutions for industries</span>
+                  <span className="text-gray-600">Industrial wood chips for pulp mills</span>
                 </li>
               </ul>
             </div>
-            <div className="h-96 bg-gradient-to-br from-red-700 to-black" />
+            <ServiceCarousel
+              images={[
+                '/materi/services/manufacture1.jpg',
+                '/materi/services/manufacture2.jpg',
+                '/materi/services/manufacture3.jpeg',
+                '/materi/services/manufacture4.jpg',
+              ]}
+            />
           </div>
         </div>
       </section>

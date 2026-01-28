@@ -137,209 +137,220 @@ industry, recognized for our reliability, innovation, and service excellence.
       
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
-        <div className="blur-sm">
+      <section className="py-20 bg-white relative">
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <span className="text-5xl md:text-4xl font-extrabold text-red-600 select-none">Coming Soon</span>
+        </div>
+        <div className="blur-sm relative z-10 pointer-events-none">
           <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4">The Team</h2>
-          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            Meet the dedicated professionals behind PT Padas Mustapa Jaya's success.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            
-            {/* Team Member 2 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png"
-                  alt="Lasmaria Sidabutar"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+            <h2 className="text-4xl font-bold text-center mb-4">The Team</h2>
+            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+              Meet the dedicated professionals behind PT Padas Mustapa Jaya's success.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {/* ...existing team member cards... */}
+              {/* Team Member 2 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png"
+                    alt="Lasmaria Sidabutar"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">Lasmaria Sidabutar</h3>
+                <p className="text-red-600 mb-2">Director</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-l font-bold mb-1">Lasmaria Sidabutar</h3>
-              <p className="text-red-600 mb-2">Director</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
+              {/* ...existing team member cards... */}
+              {/* Team Member 3 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="J. Harimurti Priambodo"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">J. Harimurti Priambodo</h3>
+                <p className="text-red-600 mb-2">Project Manager</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/harimurti" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/harimurti" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-            </div>
-            {/* Team Member 3 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="J. Harimurti Priambodo"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              {/* ...existing team member cards... */}
+              {/* Team Member 4 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="Dahlan Sipahutar"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">Dahlan Sipahutar</h3>
+                <p className="text-red-600 mb-2">Transport & HED Managaer</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-l font-bold mb-1">J. Harimurti Priambodo</h3>
-              <p className="text-red-600 mb-2">Project Manager</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/harimurti" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/harimurti" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
+              {/* ...existing team member cards... */}
+              {/* Team Member 5 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="Mulianus"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">Darwin Pasaribu</h3>
+                <p className="text-red-600 mb-2">Wood Supply Manager</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-            </div>
-            {/* Team Member 4 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="Dahlan Sipahutar"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              {/* ...existing team member cards... */}
+              {/* Team Member 6 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="Name Placeholder"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">M. Mulianus</h3>
+                <p className="text-red-600 mb-2">PR & Legal Compliance Manager</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-l font-bold mb-1">Dahlan Sipahutar</h3>
-              <p className="text-red-600 mb-2">Transport & HED Managaer</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
+              {/* ...existing team member cards... */}
+              {/* Team Member 7 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="Name Placeholder"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">LS</h3>
+                <p className="text-red-600 mb-2">HR & GA Manager</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-            </div>
-            {/* Team Member 5 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="Mulianus"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+              {/* ...existing team member cards... */}
+              {/* Team Member 8 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="Name Placeholder"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">LS</h3>
+                <p className="text-red-600 mb-2">FAT Manager</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-              <h3 className="text-l font-bold mb-1">Darwin Pasaribu</h3>
-              <p className="text-red-600 mb-2">Wood Supply Manager</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
+              {/* ...existing team member cards... */}
+              {/* Team Member 6 */}
+              <div className="text-center">
+                <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
+                  <Image 
+                    src="/team/Derryl-Sipahutar.png" 
+                    alt="Name Placeholder"
+                    fill
+                    className="object-cover blur-sm"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <h3 className="text-l font-bold mb-1">Name Placeholder</h3>
+                <p className="text-red-600 mb-2">Mill Manager</p>
+                <div className="flex justify-center gap-4 mb-3">
+                  <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
+                    className="text-gray-600 hover:text-red-600 transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
-            </div>
-            {/* Team Member 6 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="Name Placeholder"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-l font-bold mb-1">M. Mulianus</h3>
-              <p className="text-red-600 mb-2">PR & Legal Compliance Manager</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-            {/* Team Member 7 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="Name Placeholder"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-l font-bold mb-1">LS</h3>
-              <p className="text-red-600 mb-2">HR & GA Manager</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-            {/* Team Member 8 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="Name Placeholder"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-l font-bold mb-1">LS</h3>
-              <p className="text-red-600 mb-2">FAT Manager</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-            {/* Team Member 6 */}
-            <div className="text-center">
-              <div className="w-full aspect-[4/5] mb-4 overflow-hidden relative">
-                <Image 
-                  src="/team/Derryl-Sipahutar.png" 
-                  alt="Name Placeholder"
-                  fill
-                  className="object-cover blur-sm"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-l font-bold mb-1">Name Placeholder</h3>
-              <p className="text-red-600 mb-2">Mill Manager</p>
-              <div className="flex justify-center gap-4 mb-3">
-                <a href="https://linkedin.com/in/lasmaria-sidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="https://instagram.com/riasidabutar" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-red-600 transition-colors">
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
+              {/* ...existing team member cards... */}
             </div>
           </div>
-        </div>
         </div>
       </section>
     </div>
