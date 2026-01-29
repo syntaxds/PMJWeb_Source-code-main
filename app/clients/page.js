@@ -5,37 +5,39 @@ import { useState, useEffect, useRef } from 'react'
 
 export default function Clients() {
   const clients = [
-    { name: 'PT. Dunia Septindo', logo: 'DS' },
-    { name: 'Astra Autopart', logo: 'AA' },
-    { name: 'PT. PLN EPI Indonesia', logo: 'PLN' },
-    { name: 'Taiyo Marsol Indonesia', logo: 'TMI' },
-    { name: 'PT. Riau Andalan Pulp and Paper', logo: 'RAPP' },
-    { name: 'PT. Sahid Detolin Textile', logo: 'SDT' },
-    { name: 'PT. Karya Mandiri', logo: 'KM' },
-    { name: 'PT. Siefa Kimia Mandiri', logo: 'SKM' },
-    { name: 'PT. Wahyu Abadi', logo: 'WA' },
-    { name: 'PT. Aneka Tusma', logo: 'AT' },
-    { name: 'PT. Citra Boga Pratama', logo: 'CBP' },
-    { name: 'PT. Prakarsa Etsa Utama', logo: 'PEU' },
-    { name: 'PT. Guna Era Manufacture', logo: 'GEM' },
-    { name: 'PT. Asata Utama', logo: 'AU' },
-    { name: 'PT. Energi Bima Sakti', logo: 'EBS' },
-    { name: 'PT. Rabihah', logo: 'RBH' },
-    { name: 'PT. Trafindo Perkasa Mom & Jo', logo: 'TP' },
-    { name: 'PT. Afrantek', logo: 'AFR' },
-    { name: 'PT. Ridean Pelabuhan', logo: 'RP' },
-    { name: 'PT. Lamindo Inter Multikon', logo: 'LIM' },
-    { name: 'PT. Pakuan Abadi Sejahtera', logo: 'PAS' },
-    { name: 'CV. Sindue Makmur Abadi', logo: 'SMA' },
-    { name: 'PT. MSK', logo: 'MSK' },
-    { name: 'PT. Cahaya Maritim Sejahtera', logo: 'CMS' },
-    { name: 'PT. Surya Buana Sentosa-JT Bulog', logo: 'SBS' },
-    { name: 'PT. Balikpapan Chip Lestari', logo: 'BCL' },
-    { name: 'PT. Itci Hutani Manunggal', logo: 'IHM' },
-    { name: 'PT. Borneo Hijau Lestari', logo: 'BHL' },
-    { name: 'PT. Mahakam Persada Sakti', logo: 'MPS' },
-    { name: 'PT. Laju Dinamika Utama', logo: 'LDU' },
-    { name: 'PT. Bumi Alam Raya', logo: 'BAR' }
+    { name: 'PT. Dunia Saftindo', logoSrc: '/materi/clients/dunia-saftindo.jpg' },
+    { name: 'Astra Autopart', logoSrc: '/materi/clients/astra-autoparts.png' },
+    { name: 'PT. PLN EPI Indonesia', logoSrc: '/materi/clients/pln-epi-indonesia.png' },
+    { name: 'Taiyo Marsol Indonesia', logoSrc: '/materi/clients/marsol-indonesia.png' },
+    { name: 'PT. Riau Andalan Pulp and Paper', logoSrc: '/materi/clients/rapp.png' },
+    { name: 'PT. Sahid Detolin Textile', logoSrc: '/materi/clients/sahid-detolin-textile.png' },
+    { name: 'PT. Karya Mandiri', logoSrc: '/materi/clients/karya-mandiri.jpg' },
+    { name: 'CV. Siefa Kimindo Mandiri', logoSrc: '/materi/clients/siefa-kimindo-mandiri.jpg' },
+    { name: 'PT. Wahyu Abadi', logoSrc: '/materi/clients/wahyu-abadi.jpg' },
+    { name: 'PT. Aneka Tusma', logoSrc: '/materi/clients/aneka-tusma.jpg' },
+    { name: 'PT. Citra Boga Pratama', logoSrc: '/materi/clients/citra-boga.png' },
+    { name: 'PT. Prakarsa Etsa Utama', logoSrc: '/materi/clients/prakarsa-etsa-utama.png' },
+    { name: 'PT. Guna Era Manufacture', logoSrc: '/materi/clients/gne.png' },
+    { name: 'PT. Asata Utama', logoSrc: '/materi/clients/asata-utama.jpg' },
+    { name: 'PT. Energi Bima Sakti', logoSrc: '/materi/clients/energi-bima-sakti.png' },
+    { name: 'PT. Rabihah', logoSrc: '/materi/clients/rabihah.png' },
+    { name: 'PT. Trafindo Prima Perkasa ', logoSrc: '/materi/clients/trafindo.png' },
+    { name: 'Mom & Jo', logoSrc: '/materi/clients/mom&jo.png' },
+    { name: 'PT. Afrantek', logoSrc: '/materi/clients/afrantek.png' },
+    { name: 'PT. Tunas Ridean', logoSrc: '/materi/clients/tunas-ridean.png' },
+    { name: 'PT. Lamindo Inter Multikon', logoSrc: '/materi/clients/lamindo-intermultikon.jpg' },
+    { name: 'PT. Pakuan Abadi Sejahtera', logoSrc: '/materi/clients/pakuan-abadi-sejahtera.png' },
+    { name: 'CV. Sindue Makmur Abadi', logoSrc: '/materi/clients/sindue-makmur-abadi.jpg' },
+    { name: 'PT. MSK Engineering & Design', logoSrc: '/materi/clients/msk.png' },
+    { name: 'PT. Cahaya Sejahtera Indonesia', logoSrc: '/materi/clients/cahaya-sejahtera.jpg' },
+    { name: 'PT. Surya Buana Sentosa', logoSrc: '/materi/clients/surya-buana.png' },
+    { name: 'Bulog', logoSrc: '/materi/clients/bulog.jpg' },
+    { name: 'PT. Balikpapan Chip Lestari', logoSrc: '/materi/clients/bcl.jpg' },
+    { name: 'PT. Itci Hutani Manunggal', logoSrc: '/materi/clients/itci-hutani-manunggal.png' },
+    { name: 'PT. Borneo Hijau Lestari', logoSrc: '/materi/clients/borneo-hijau-lestari.png' },
+    { name: 'PT. Mahakam Persada Sakti', logoSrc: '/materi/clients/mahakam-persada.png' },
+    { name: 'PT. Laju Dinamika Utama', logoSrc: '/materi/clients/ldu.jpg' },
+    { name: 'PT. Bumi Alam Raya', logoSrc: '/materi/clients/bumi-alam-raya.jpg' }
   ]
 
   const testimonials = [
@@ -216,7 +218,7 @@ export default function Clients() {
         style={{ backgroundImage: "url('/materi/PMJ-AREA-2.jpg')" }}>
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative container mx-auto px-4 text-center max-w-4xl"> 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Clients</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Clients</h1>
         </div>
       </section>
 
@@ -240,7 +242,12 @@ export default function Clients() {
                 className="flex-shrink-0 w-48 mx-4 flex items-center justify-center p-8 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200"
               >
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-700 mb-2">{client.logo}</div>
+                  <img
+                    src={client.logoSrc}
+                    alt={client.name + ' logo'}
+                    className="mx-auto mb-2 h-16 w-16 object-contain bg-white rounded shadow"
+                    style={{ background: '#fff' }}
+                  />
                   <div className="text-xs text-gray-500">{client.name}</div>
                 </div>
               </div>
@@ -250,13 +257,13 @@ export default function Clients() {
       </section>
 
       {/* Testimonials - Auto-rotating with fade */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 point">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4">What Our Clients Say</h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our valued clients have to say about working with us.
+            Here's what our valued clients have to say about working with us.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 blur-sm" style={{userSelect: 'none'}}>
             <TestimonialCard testimonial={testimonial1} isBlink={column1Blink} />
             <TestimonialCard testimonial={testimonial2} isBlink={column2Blink} />
             <TestimonialCard testimonial={testimonial3} isBlink={column3Blink} />
@@ -265,9 +272,9 @@ export default function Clients() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-red-600 text-white">
+      <section className="py-20 bg-red-600 text-white blur-sm" style={{userSelect: 'none'}}>
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold mb-2">50+</div>
               <div className="text-xl">Active Clients</div>
@@ -279,10 +286,6 @@ export default function Clients() {
             <div>
               <div className="text-5xl font-bold mb-2">100K+</div>
               <div className="text-xl">Tons of Woodchips</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-2">15+</div>
-              <div className="text-xl">Years Experience</div>
             </div>
           </div>
         </div>

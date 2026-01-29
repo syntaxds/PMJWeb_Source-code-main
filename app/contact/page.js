@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react'
+
 import dynamic from 'next/dynamic';
 const MapSection = dynamic(() => import('../../components/MapSection'), { ssr: false });
 
@@ -12,20 +13,83 @@ export default function Contact() {
     phone: '',
     company: '',
     service: '',
-    message: ''
+    message: '',
+    // Honeypot fields (anti-spam)
+    website: '',
+    phone_number: ''
   })
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState({
+    loading: false,
+    success: false,
+    error: null
+  })
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    alert('Thank you for contacting us! We will get back to you soon.')
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      message: ''
-    })
+    
+    // Reset status
+    setStatus({ loading: true, success: false, error: null })
+
+    try {
+      const response = await fetch('/api/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: `${formData.service} - ${formData.company || 'Individual'}`,
+          message: `Phone: ${formData.phone || 'Not provided'}\nCompany: ${formData.company || 'Not provided'}\nService Interest: ${formData.service}\n\nMessage:\n${formData.message}`,
+          // Honeypot fields
+          website: formData.website,
+          phone_number: formData.phone_number
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setStatus({ 
+          loading: false, 
+          success: true, 
+          error: null 
+        })
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: '',
+          message: '',
+          website: '',
+          phone_number: ''
+        })
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setStatus(prev => ({ ...prev, success: false }))
+        }, 5000)
+
+      } else {
+        setStatus({ 
+          loading: false, 
+          success: false, 
+          error: data.message || 'Failed to send message. Please try again.' 
+        })
+      }
+
+    } catch (error) {
+      console.error('Submit error:', error)
+      setStatus({ 
+        loading: false, 
+        success: false, 
+        error: 'Network error. Please check your connection and try again.' 
+      })
+    }
   }
 
   const handleChange = (e) => {
@@ -108,7 +172,34 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-gray-50 p-6 md:p-8 rounded-xl shadow-sm">
               <h2 className="text-3xl font-bold mb-6">Contact Form</h2>
-              <div className="space-y-5">
+              
+              {/* Success Message */}
+              {status.success && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="flex items-start">
+                    <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <p className="ml-3 text-sm text-green-700">
+                      Thank you for contacting us! We'll get back to you soon.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {status.error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-start">
+                    <svg className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    <p className="ml-3 text-sm text-red-700">{status.error}</p>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label className="block text-sm font-semibold mb-2" htmlFor="name">
                     Full Name *
@@ -120,7 +211,10 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                    minLength={2}
+                    maxLength={100}
+                    disabled={status.loading}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="John Doe"
                   />
                 </div>
@@ -136,7 +230,8 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                    disabled={status.loading}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -151,7 +246,8 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                    disabled={status.loading}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="+62 812 3456 7890"
                   />
                 </div>
@@ -166,7 +262,8 @@ export default function Contact() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all"
+                    disabled={status.loading}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Your Company"
                   />
                 </div>
@@ -180,7 +277,8 @@ export default function Contact() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all bg-white"
+                    disabled={status.loading}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
                   >
                     <option value="Placeholder">Select inquiries</option>
                     <option value="logistics">Logistics & Shipping</option>
@@ -200,20 +298,60 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    minLength={10}
+                    maxLength={5000}
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all resize-none"
+                    disabled={status.loading}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent transition-all resize-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Tell us about your project or inquiry..."
                   ></textarea>
                 </div>
 
+                {/* HONEYPOT FIELDS - Hidden from users, visible to bots */}
+                <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    value={formData.website}
+                    onChange={handleChange}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+                  <input
+                    type="text"
+                    name="phone_number"
+                    value={formData.phone_number}
+                    onChange={handleChange}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+                </div>
+
                 <button
-                  onClick={handleSubmit}
-                  className="w-full bg-red-600 text-white py-3 px-6 font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                  type="submit"
+                  disabled={status.loading}
+                  className={`w-full py-3 px-6 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center shadow-md transform ${
+                    status.loading
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-red-600 text-white hover:bg-red-700 hover:shadow-lg hover:-translate-y-0.5'
+                  }`}
                 >
-                  <Send size={20} className="mr-2" />
-                  SEND MESSAGE
+                  {status.loading ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} className="mr-2" />
+                      SEND MESSAGE
+                    </>
+                  )}
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
