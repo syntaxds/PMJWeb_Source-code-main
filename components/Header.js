@@ -10,7 +10,8 @@ const App = () => {
       textColor: "#fff",
       links: [
         { label: "Company", ariaLabel: "About Page", href: "/about" },
-        { label: "Gallery", ariaLabel: "Gallery Page", href: "/gallery" }
+        { label: "Gallery", ariaLabel: "Gallery Page", href: "/gallery" },
+        { label: "Career", ariaLabel: "Career Page", href: "/career" }
       ]
     },
     {
