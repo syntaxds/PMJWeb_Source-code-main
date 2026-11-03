@@ -13,9 +13,6 @@ const ui = {
     heroTitle: 'Build your career with PMJ.',
     heroDesc:
       "Join PT Padas Mustapa Jaya and help shape Indonesia's logistics, heavy equipment, and woodchip industry.",
-    statsPositions: 'Open positions',
-    statsLocation: 'Primary location',
-    statsGrowth: 'Growth opportunities',
     whyKicker: 'Why PMJ',
     whyJoin: 'What you get when you join.',
     whyJoinDesc: "We invest in our people. Here's what makes PMJ a place people stay.",
@@ -44,15 +41,12 @@ const ui = {
       "We're always looking for talented people. Send us your resume and we'll keep you in mind for future openings.",
     ctaBtn: 'Get in touch',
     noPositions: 'No positions found in this category.',
-    categories: ['All', 'Management', 'Logistics', 'Human Resources', 'Production', 'Technical', 'Operations', 'Administration'],
+    categories: ['All', 'Wood Supply', 'Logistics', 'HR & GA', 'Mill', 'PR & Legal'],
   },
   id: {
-    heroTitle: 'Bangun karier Anda bersama PMJ.',
+    heroTitle: 'Bangun karir Anda bersama PMJ.',
     heroDesc:
       'Bergabunglah dengan PT Padas Mustapa Jaya dan bantu bentuk industri logistik, alat berat, dan woodchip Indonesia.',
-    statsPositions: 'Lowongan terbuka',
-    statsLocation: 'Lokasi utama',
-    statsGrowth: 'Peluang pengembangan',
     whyKicker: 'Mengapa PMJ',
     whyJoin: 'Apa yang Anda dapatkan saat bergabung.',
     whyJoinDesc:
@@ -63,9 +57,9 @@ const ui = {
     benefit2Title: 'Budaya kolaboratif',
     benefit2Desc:
       'Bekerja bersama profesional berpengalaman dalam lingkungan yang suportif, aman, dan profesional yang menghargai setiap anggota tim.',
-    benefit3Title: 'Pengembangan karier',
+    benefit3Title: 'Pengembangan karir',
     benefit3Desc:
-      'Program pengembangan profesional, pelatihan keterampilan, dan jalur yang jelas untuk memajukan karier Anda.',
+      'Program pengembangan profesional, pelatihan keterampilan, dan jalur yang jelas untuk memajukan karir Anda.',
     openKicker: 'Lowongan terbuka',
     openPositions: 'Posisi yang tersedia.',
     openPositionsDesc: 'Filter berdasarkan fungsi untuk menemukan posisi yang cocok.',
@@ -82,36 +76,26 @@ const ui = {
       'Kami selalu mencari individu berbakat. Kirimkan resume Anda dan kami akan menghubungi untuk peluang di masa mendatang.',
     ctaBtn: 'Hubungi kami',
     noPositions: 'Tidak ada posisi yang tersedia dalam kategori ini.',
-    categories: ['Semua', 'Manajemen', 'Logistik', 'Sumber Daya Manusia', 'Produksi', 'Teknis', 'Operasional', 'Administrasi'],
+    categories: ['Semua', 'Wood Supply', 'Logistics', 'HR & GA', 'Mill', 'PR & Legal'],
   },
 };
 
+const DIVISIONS = ['Wood Supply', 'Logistics', 'HR & GA', 'Mill', 'PR & Legal'];
+
 const categoryMap = {
-  en: {
-    Management: 'Management', Logistics: 'Logistics', 'Human Resources': 'Human Resources',
-    Production: 'Production', Technical: 'Technical', Operations: 'Operations', Administration: 'Administration',
-  },
-  id: {
-    Management: 'Manajemen', Logistics: 'Logistik', 'Human Resources': 'Sumber Daya Manusia',
-    Production: 'Produksi', Technical: 'Teknis', Operations: 'Operasional', Administration: 'Administrasi',
-  },
+  en: Object.fromEntries(DIVISIONS.map((d) => [d, d])),
+  id: Object.fromEntries(DIVISIONS.map((d) => [d, d])),
 };
 
 const filterToCategory = {
-  en: {
-    All: null, Management: 'Management', Logistics: 'Logistics', 'Human Resources': 'Human Resources',
-    Production: 'Production', Technical: 'Technical', Operations: 'Operations', Administration: 'Administration',
-  },
-  id: {
-    Semua: null, Manajemen: 'Management', Logistik: 'Logistics', 'Sumber Daya Manusia': 'Human Resources',
-    Produksi: 'Production', Teknis: 'Technical', Operasional: 'Operations', Administrasi: 'Administration',
-  },
+  en: { All: null, ...Object.fromEntries(DIVISIONS.map((d) => [d, d])) },
+  id: { Semua: null, ...Object.fromEntries(DIVISIONS.map((d) => [d, d])) },
 };
 
 // ─── Job Data (bilingual) ──────────────────────────────────────────────────────
 const jobs = [
   {
-    jobId: 1, category: 'Management', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 1, category: 'Mill', location: 'Kubu Raya – West Kalimantan', type: 'Contract', open: false,
     en: {
       title: 'Mill Manager', subtitle: 'Woodchip Factory',
       description: 'Direct and coordinate daily mill operations to ensure efficient and smooth production at our woodchip factory.',
@@ -168,13 +152,13 @@ const jobs = [
       benefits: [
         'Paket gaji kompetitif sesuai tanggung jawab manajerial.',
         'Tunjangan (perumahan, transportasi, makan) dan insentif berbasis kinerja.',
-        'Kesempatan pengembangan karier dan pelatihan profesional.',
+        'Kesempatan pengembangan Karir dan pelatihan profesional.',
         'Lingkungan kerja yang aman, profesional, dan mendukung.',
       ],
     },
   },
   {
-    jobId: 2, category: 'Logistics', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 2, category: 'Logistics', location: 'Kubu Raya – West Kalimantan', type: 'Contract', open: false,
     en: {
       title: 'Logistic Manager', subtitle: '',
       description: 'Lead and manage all logistics operations including procurement, warehouse management, inventory control, and distribution.',
@@ -233,13 +217,13 @@ const jobs = [
       benefits: [
         'Gaji kompetitif sesuai pengalaman.',
         'Tunjangan makan, transport, dan insentif lembur.',
-        'Kesempatan pelatihan dan pengembangan karier.',
+        'Kesempatan pelatihan dan pengembangan karir.',
         'Lingkungan kerja profesional dan suportif.',
       ],
     },
   },
   {
-    jobId: 3, category: 'Human Resources', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 3, category: 'HR & GA', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
     en: {
       title: 'HR & GA Supervisor', subtitle: '',
       description: 'Oversee human resources and general affairs functions including recruitment, employee data management, training, and compliance.',
@@ -302,7 +286,7 @@ const jobs = [
     },
   },
   {
-    jobId: 4, category: 'Production', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 4, category: 'Mill', location: 'Kubu Raya – West Kalimantan', type: 'Contract', open: false,
     en: {
       title: 'Production Supervisor', subtitle: 'Woodchip Factory',
       description: 'Supervise all woodchip production activities, manage work schedules, and ensure production targets and quality standards are met.',
@@ -353,13 +337,13 @@ const jobs = [
       benefits: [
         'Gaji kompetitif sesuai pengalaman dan kualifikasi.',
         'Tunjangan jabatan, makan, transportasi, dan lembur.',
-        'Kesempatan pengembangan karier dan pelatihan di industri woodchip.',
+        'Kesempatan pengembangan karir dan pelatihan di industri woodchip.',
         'Lingkungan kerja yang profesional, aman, dan mendukung.',
       ],
     },
   },
   {
-    jobId: 5, category: 'Technical', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 5, category: 'Logistics', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
     en: {
       title: 'Heavy Equipment Mechanic', subtitle: '',
       description: 'Conduct daily inspections, routine maintenance, and perform repairs on heavy equipment including excavators and loaders.',
@@ -416,7 +400,7 @@ const jobs = [
     },
   },
   {
-    jobId: 6, category: 'Operations', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 6, category: 'Wood Supply', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
     en: {
       title: 'Excavator Operator', subtitle: '',
       description: 'Operate excavators safely and efficiently for digging, loading, leveling, and other earthmoving activities on project sites.',
@@ -465,13 +449,13 @@ const jobs = [
       benefits: [
         'Gaji kompetitif sesuai keterampilan dan pengalaman.',
         'Tunjangan (makan, transportasi, lembur).',
-        'Kesempatan pelatihan dan pengembangan karier.',
+        'Kesempatan pelatihan dan pengembangan karir.',
         'Lingkungan kerja yang aman dan mendukung.',
       ],
     },
   },
   {
-    jobId: 7, category: 'Operations', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 7, category: 'Logistics', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
     en: {
       title: 'Loader Operator', subtitle: '',
       description: 'Operate loaders safely and efficiently for loading, stockpiling, leveling, and material handling on daily site operations.',
@@ -520,13 +504,13 @@ const jobs = [
       benefits: [
         'Gaji kompetitif sesuai keterampilan dan pengalaman.',
         'Tunjangan (makan, transportasi, lembur).',
-        'Kesempatan pelatihan dan pengembangan karier.',
+        'Kesempatan pelatihan dan pengembangan karir.',
         'Lingkungan kerja yang profesional dan mendukung.',
       ],
     },
   },
   {
-    jobId: 8, category: 'Production', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 8, category: 'Mill', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
     en: {
       title: 'Production Helper', subtitle: 'Woodchip Factory',
       description: 'Assist in the woodchip manufacturing process including sorting, feeding raw materials, packaging, and supporting machine operators.',
@@ -579,7 +563,7 @@ const jobs = [
     },
   },
   {
-    jobId: 9, category: 'Administration', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
+    jobId: 9, category: 'Mill', location: 'Kubu Raya – West Kalimantan', type: 'Contract',
     en: {
       title: 'Production Administrator', subtitle: '',
       description: 'Manage daily production data, prepare reports, and coordinate administrative needs with the production team.',
@@ -661,7 +645,7 @@ export default function CareerPage() {
   const t = ui[lang];
   const jobLang = lang === 'en' ? 'en' : 'ind';
   const activeCategory = filterToCategory[lang][t.categories[activeFilter]];
-  const filteredJobs = activeCategory ? jobs.filter((j) => j.category === activeCategory) : jobs;
+  const filteredJobs = jobs.filter((j) => j.open !== false && (!activeCategory || j.category === activeCategory));
 
   // lock body scroll while modal is open
   useEffect(() => {
@@ -685,18 +669,6 @@ export default function CareerPage() {
           </div>
           <h1>{t.heroTitle}</h1>
           <p className="pmj-sub">{t.heroDesc}</p>
-        </div>
-      </section>
-
-      {/* STATBAND */}
-      <section className="pmj-statband">
-        <div className="pmj-container">
-          <div className="pmj-statband-grid">
-            <div className="pmj-statband-item"><div className="v">{jobs.length}</div><div className="l">{t.statsPositions}</div></div>
-            <div className="pmj-statband-item"><div className="v">1</div><div className="l">{t.statsLocation}</div></div>
-            <div className="pmj-statband-item"><div className="v">∞</div><div className="l">{t.statsGrowth}</div></div>
-            <div className="pmj-statband-item"><div className="v">2014</div><div className="l">{lang === 'en' ? 'Est.' : 'Berdiri'}</div></div>
-          </div>
         </div>
       </section>
 

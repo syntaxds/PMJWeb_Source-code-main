@@ -1,8 +1,5 @@
 const nextConfig = {
   output: 'standalone',
-  images: {
-    unoptimized: true,
-  },
   serverExternalPackages: ['mongodb'],
   async headers() {
     return [

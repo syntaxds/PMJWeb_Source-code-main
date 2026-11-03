@@ -21,7 +21,7 @@ export default function ClientsPage() {
     <div>
       <section className="pmj-page-hero">
         <div className="pmj-page-hero-media">
-          <img src="/materi/PMJ-AREA-84.jpg" alt="" />
+          <img src="/materi/client-photo.png" alt="" />
         </div>
         <div className="pmj-container pmj-page-hero-inner">
           <div className="pmj-breadcrumb">
@@ -57,32 +57,12 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      <section className="pmj-block" style={{ background: 'var(--pmj-gray-50)', paddingTop: 80, paddingBottom: 80 }}>
-        <div className="pmj-container">
-          <Reveal className="pmj-section-head">
-            <div>
-              <div className="pmj-kicker">{EN ? 'Sectors served' : 'Sektor yang dilayani'}</div>
-              <h2 className="pmj-section-title">
-                {EN ? 'Five sectors. One operations playbook.' : 'Lima sektor. Satu playbook operasional.'}
-              </h2>
-            </div>
-          </Reveal>
-          <Reveal className="pmj-sectors-grid">
-            {sectors.map((s) => (
-              <div className="pmj-sector-card" key={s[0]}>
-                <div className="v">{s[1]}</div>
-                <div className="l">{s[0]}</div>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
 
       <section className="pmj-callout">
         <div className="pmj-container pmj-callout-inner">
           <div>
             <div className="pmj-kicker" style={{ color: 'var(--pmj-red)' }}>
-              {EN ? 'Become the 34th' : 'Jadi yang ke-34'}
+              {EN ? 'Be the next one' : 'Jadi yang selanjutnya'}
             </div>
             <h2>{EN ? 'Get your operation on our board.' : 'Dapatkan operasi Anda di papan kami.'}</h2>
           </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/components/pmj/LanguageProvider';
 import Reveal from '@/components/pmj/Reveal';
@@ -10,14 +11,12 @@ export default function HomePage() {
   const { lang, t } = useLanguage();
   const EN = lang === 'en';
 
-  const marquee = PMJ_CLIENTS.concat(PMJ_CLIENTS);
-
   return (
     <div>
       {/* HERO */}
       <section className="pmj-hero">
         <div className="pmj-hero-media">
-          <img src="/materi/PMJ-AREA-73.jpg" alt="PMJ operations" />
+          <Image src="/materi/PMJ-AREA-73.jpg" alt="PMJ operations" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
         </div>
         <div className="pmj-container pmj-hero-inner">
           <div className="pmj-hero-eyebrow">
@@ -34,26 +33,7 @@ export default function HomePage() {
             <Link href="/contact" className="pmj-btn pmj-btn-outline">{t.cta.contact}</Link>
           </div>
         </div>
-        <div className="pmj-hero-stats">
-          <div className="pmj-hero-stats-inner">
-            <div className="pmj-hero-stat"><div className="v">33+</div><div className="l">{t.hero.stat1}</div></div>
-            <div className="pmj-hero-stat"><div className="v">120+</div><div className="l">{t.hero.stat2}</div></div>
-            <div className="pmj-hero-stat"><div className="v">11</div><div className="l">{t.hero.stat3}</div></div>
-            <div className="pmj-hero-stat"><div className="v">99.2%</div><div className="l">{t.hero.stat4}</div></div>
-          </div>
-        </div>
       </section>
-
-      {/* CLIENT MARQUEE */}
-      <div className="pmj-marquee" aria-label="Trusted by">
-        <div className="pmj-marquee-track">
-          {marquee.map((c, i) => (
-            <div className="pmj-marquee-item" key={`${c.n}-${i}`} title={c.n}>
-              <img src={c.l} alt={c.n} />
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* SERVICES */}
       <section className="pmj-block">
@@ -67,7 +47,7 @@ export default function HomePage() {
           </Reveal>
           <div className="pmj-svc-grid">
             <Reveal as={Link} href="/services#logistics" className="pmj-svc-card">
-              <img src="/materi/PMJ-AREA-73.jpg" alt="" />
+              <Image src="/materi/services/logistic2.png" alt="" fill sizes="(max-width:768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
               <div className="pmj-svc-content">
                 <div className="pmj-svc-no">01</div>
                 <h3 className="pmj-svc-title">{t.services.s1t}</h3>
@@ -79,7 +59,7 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal as={Link} href="/services#equipment" className="pmj-svc-card">
-              <img src="/materi/PMJ-AREA-59.jpg" alt="" />
+              <Image src="/materi/PMJ-AREA-59.jpg" alt="" fill sizes="(max-width:768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
               <div className="pmj-svc-content">
                 <div className="pmj-svc-no">02</div>
                 <h3 className="pmj-svc-title">{t.services.s2t}</h3>
@@ -91,7 +71,7 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal as={Link} href="/services#biomass" className="pmj-svc-card">
-              <img src="/materi/PMJ-AREA-75.jpg" alt="" />
+              <Image src="/materi/PMJ-AREA-75.jpg" alt="" fill sizes="(max-width:768px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
               <div className="pmj-svc-content">
                 <div className="pmj-svc-no">03</div>
                 <h3 className="pmj-svc-title">{t.services.s3t}</h3>
@@ -111,7 +91,7 @@ export default function HomePage() {
         <div className="pmj-container">
           <Reveal className="pmj-split">
             <div>
-              <img src="/materi/PMJ-AREA-105.jpg" alt="PMJ team on site" />
+              <Image src="/materi/PMJ-AREA-105.jpg" alt="PMJ team on site" width={900} height={560} sizes="(max-width:768px) 100vw, 50vw" />
             </div>
             <div>
               <div className="pmj-kicker">{t.about.kicker}</div>
@@ -119,8 +99,8 @@ export default function HomePage() {
               <p>{t.about.body}</p>
               <p className="pmj-muted">
                 {EN
-                  ? 'Our headquarters in Bekasi coordinates a 120-unit fleet. Our mill in Pontianak produces 48,000 MT of export-grade woodchips per year. Everything you see on this site — from the tugboat to the chipper — is owned and operated by PMJ.'
-                  : 'Kantor pusat kami di Bekasi mengoordinasikan armada 120 unit. Mill kami di Pontianak memproduksi 48.000 MT woodchip kualitas ekspor per tahun. Semua yang Anda lihat di situs ini — mulai dari tugboat hingga chipper — dimiliki dan dioperasikan oleh PMJ.'}
+                  ? 'Our headquarters in Bekasi coordinates all of our fleet. Our mill in Pontianak produces 78,000 MT+ of export-grade woodchips per year. Everything you see on this site — from the chipper to the barge — is owned and operated by PMJ.'
+                  : 'Kantor pusat kami di Bekasi mengoordinasikan semua armada. Mill kami di Pontianak memproduksi 78.000 MT+ woodchip kualitas ekspor per tahun. Semua yang Anda lihat di situs ini — mulai dari chipper hingga barge — dimiliki dan dioperasikan oleh PMJ.'}
               </p>
               <div style={{ marginTop: 28, display: 'flex', gap: 12 }}>
                 <Link href="/about" className="pmj-btn pmj-btn-dark">
@@ -133,18 +113,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATBAND */}
-      <Reveal as="section" className="pmj-statband">
-        <div className="pmj-container">
-          <div className="pmj-statband-grid">
-            <div className="pmj-statband-item"><div className="v">48K</div><div className="l">{EN ? 'MT woodchips per year' : 'MT woodchip per tahun'}</div></div>
-            <div className="pmj-statband-item"><div className="v">2</div><div className="l">{EN ? 'Operational bases' : 'Basis operasional'}</div></div>
-            <div className="pmj-statband-item"><div className="v">24/7</div><div className="l">Dispatch</div></div>
-            <div className="pmj-statband-item"><div className="v">0</div><div className="l">{EN ? 'Fatalities since 2014' : 'Kecelakaan fatal sejak 2014'}</div></div>
-          </div>
-        </div>
-      </Reveal>
-
       {/* CLIENTS BAND */}
       <section className="pmj-block pmj-clients-band">
         <div className="pmj-container">
@@ -155,12 +123,31 @@ export default function HomePage() {
             </div>
             <p className="pmj-section-sub">{t.clients.sub}</p>
           </Reveal>
-          <Reveal className="pmj-clients-grid">
-            {PMJ_CLIENTS.slice(0, 18).map((c) => (
-              <div className="pmj-client-cell" key={c.n} title={c.n}>
-                <img src={c.l} alt={c.n} />
-              </div>
-            ))}
+          <Reveal className="pmj-clients-featured">
+            {(() => {
+              const FEATURED = {
+                'PT. Riau Andalan Pulp and Paper': 'https://www.aprilasia.com/id/',
+                'PT. PLN EPI Indonesia': 'https://www.plnepi.co.id/',
+                'Astra Otopart': 'https://www.astra-otoparts.com/',
+                'Bulog': 'https://www.bulog.co.id/',
+              };
+              return Object.keys(FEATURED)
+                .map((name) => PMJ_CLIENTS.find((c) => c.n === name))
+                .filter(Boolean)
+                .map((c) => (
+                  <a
+                    className="pmj-featured-card"
+                    key={c.n}
+                    href={FEATURED[c.n]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={c.n}
+                  >
+                    <img src={c.l} alt={c.n} loading="lazy" />
+                    <div className="pmj-featured-name">{c.n}</div>
+                  </a>
+                ));
+            })()}
           </Reveal>
           <div style={{ marginTop: 32 }}>
             <Link href="/clients" className="pmj-btn pmj-btn-ghost">
@@ -173,7 +160,7 @@ export default function HomePage() {
 
       {/* TESTIMONIALS / WHY */}
       <section className="pmj-block">
-        <div className="pmj-container">
+        <div className="pmj-container pmj-blur-protect">
           <Reveal className="pmj-section-head">
             <div>
               <div className="pmj-kicker">{EN ? 'Why PMJ' : 'Mengapa PMJ'}</div>
@@ -235,7 +222,7 @@ export default function HomePage() {
         <div className="pmj-container pmj-callout-inner">
           <div>
             <div className="pmj-kicker" style={{ color: 'var(--pmj-red)' }}>{t.cta.quote}</div>
-            <h2>{EN ? 'Got a lane, a load, or a mill to run?' : 'Punya rute, muatan, atau pabrik untuk dijalankan?'}</h2>
+            <h2>{EN ? 'Got a lane, a load, or a projects to run?' : 'Punya rute, muatan, atau proyek untuk dijalankan?'}</h2>
           </div>
           <div>
             <p>

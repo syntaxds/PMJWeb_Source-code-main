@@ -13,7 +13,7 @@ export default function PMJFooter() {
             <img src="/logo.png" alt="PMJ" />
             <p>
               PT Padas Mustapa Jaya — {t.footer.tag}.<br />
-              Bekasi · Pontianak · Indonesia
+              Bekasi & Pontianak · Indonesia
             </p>
           </div>
           <div>
@@ -44,8 +44,11 @@ export default function PMJFooter() {
           </div>
         </div>
         <div className="pmj-footer-bottom">
-          <span>© 2026 PT Padas Mustapa Jaya. {t.footer.rights}</span>
-          <span>Est. 2014 · Bekasi, Indonesia</span>
+          <span>
+            © 2026 PT Padas Mustapa Jaya. {t.footer.rights}{' '}
+            <Link href="/privacy-policy">{t.footer.privacy}</Link> · <Link href="/terms-conditions">{t.footer.terms}</Link>
+          </span>
+          <span>Est. 2018 · Bekasi, Indonesia</span>
         </div>
       </div>
     </footer>

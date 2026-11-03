@@ -3,6 +3,7 @@ import './globals.css';
 import PMJNav from '@/components/pmj/PMJNav';
 import PMJFooter from '@/components/pmj/PMJFooter';
 import { LanguageProvider } from '@/components/pmj/LanguageProvider';
+import GlobalLoadingProvider from '@/components/pmj/GlobalLoadingProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,21 +20,23 @@ const serif = Source_Serif_4({
 });
 
 export const metadata = {
-  title: 'PT Padas Mustapa Jaya — Logistics, Heavy Equipment, Biomass',
+  title: 'PT Padas Mustapa Jaya',
   description:
-    'Integrated industrial services since 2014. Logistics, heavy equipment rental, and woodchip / biomass solutions trusted by Indonesia\'s leading mills, utilities, and manufacturers.',
+    'Integrated industrial services since 2018. Logistics, heavy equipment rental, and woodchip / biomass solutions trusted by Indonesia\'s leading mills, utilities, and manufacturers.',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${serif.variable}`}>
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${serif.variable}`} suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <LanguageProvider>
-          <div className="pmj-root">
-            <PMJNav />
-            <main>{children}</main>
-            <PMJFooter />
-          </div>
+          <GlobalLoadingProvider>
+            <div className="pmj-root">
+              <PMJNav />
+              <main>{children}</main>
+              <PMJFooter />
+            </div>
+          </GlobalLoadingProvider>
         </LanguageProvider>
       </body>
     </html>

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/components/pmj/LanguageProvider';
 import Reveal from '@/components/pmj/Reveal';
+import { PMJ_BOARD } from '@/lib/pmj-data';
 
 export default function AboutPage() {
   const { lang, t } = useLanguage();
@@ -82,16 +83,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pmj-statband">
+      {/*<section className="pmj-block" style={{ background: 'var(--pmj-gray-50)', paddingTop: 80, paddingBottom: 80 }}>
         <div className="pmj-container">
-          <div className="pmj-statband-grid">
-            <div className="pmj-statband-item"><div className="v">2014</div><div className="l">{EN ? 'Founded' : 'Didirikan'}</div></div>
-            <div className="pmj-statband-item"><div className="v">3</div><div className="l">{EN ? 'Divisions' : 'Divisi'}</div></div>
-            <div className="pmj-statband-item"><div className="v">33+</div><div className="l">{EN ? 'Active clients' : 'Klien aktif'}</div></div>
-            <div className="pmj-statband-item"><div className="v">99.2%</div><div className="l">{EN ? 'Operational uptime' : 'Uptime operasional'}</div></div>
+          <Reveal className="pmj-section-head">
+            <div>
+              <div className="pmj-kicker">{p.board_t}</div>
+              <h2 className="pmj-section-title">
+                {EN ? 'The people leading every operation.' : 'Orang-orang yang memimpin setiap operasi.'}
+              </h2>
+            </div>
+          </Reveal>
+          <div className="pmj-board-groups">
+            <div>
+              <div className="pmj-board-group-label">{p.board_exec}</div>
+              <div className="pmj-board-grid pmj-board-exec">
+                {PMJ_BOARD.executives.map((person, i) => (
+                  <Reveal key={i} className="pmj-board-card">
+                    <img src={person.img} alt={person.name} />
+                    <div className="pmj-board-card-info">
+                      <p className="pmj-board-card-role">{EN ? person.role_en : person.role_id}</p>
+                      <h4 className="pmj-board-card-name">{person.name}</h4>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="pmj-board-group-label">{p.board_hod}</div>
+              <div className="pmj-board-grid pmj-board-hod">
+                {PMJ_BOARD.hods.map((person, i) => (
+                  <Reveal key={i} className="pmj-board-card">
+                    <img src={person.img} alt={person.name} />
+                    <div className="pmj-board-card-info">
+                      <p className="pmj-board-card-role">{EN ? person.role_en : person.role_id}</p>
+                      <h4 className="pmj-board-card-name">{person.name}</h4>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       <section className="pmj-callout">
         <div className="pmj-container pmj-callout-inner">

@@ -24,6 +24,15 @@ export default function ContactPage() {
 
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+  const isFormValid =
+    form.name.trim() &&
+    form.company.trim() &&
+    emailValid &&
+    form.phone.trim() &&
+    form.service.trim() &&
+    form.details.trim();
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setStatus({ state: 'sending', msg: EN ? 'Sending…' : 'Mengirim…' });
@@ -89,7 +98,7 @@ export default function ContactPage() {
                 <div>
                   <div className="pmj-info-t">{c.ho}</div>
                   <div className="pmj-info-v">Grand Galaxy City Blok RSA 2 No. 19</div>
-                  <div className="pmj-info-s">Bekasi Selatan, Jawa Barat 17147 — Indonesia</div>
+                  <div className="pmj-info-s">Bekasi Selatan, Jawa Barat, Indonesia</div>
                 </div>
               </div>
               <div className="pmj-info-card">
@@ -98,7 +107,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="pmj-info-t">{c.so}</div>
-                  <div className="pmj-info-v">{EN ? 'Biomass Mill — Pontianak' : 'Mill Biomassa — Pontianak'}</div>
+                  <div className="pmj-info-v">{EN ? 'Kubu Raya — Pontianak' : 'Kubu Raya — Pontianak'}</div>
                   <div className="pmj-info-s">{EN ? 'West Kalimantan, Indonesia' : 'Kalimantan Barat, Indonesia'}</div>
                 </div>
               </div>
@@ -109,7 +118,7 @@ export default function ContactPage() {
                 <div>
                   <div className="pmj-info-t">{c.ph}</div>
                   <div className="pmj-info-v">+62 21 38711145</div>
-                  <div className="pmj-info-s">+62 812 1234 5678 — Operations</div>
+                  <div className="pmj-info-s">PMJ Head Office</div>
                 </div>
               </div>
               <div className="pmj-info-card">
@@ -119,7 +128,7 @@ export default function ContactPage() {
                 <div>
                   <div className="pmj-info-t">{c.em}</div>
                   <div className="pmj-info-v">info@pmjsystem.com</div>
-                  <div className="pmj-info-s">operations@pmjsystem.com</div>
+                  <div className="pmj-info-s">{EN ? 'For Other Information & Details' : 'Informasi Lainnya'}</div>
                 </div>
               </div>
               <div className="pmj-info-card">
@@ -129,13 +138,13 @@ export default function ContactPage() {
                 <div>
                   <div className="pmj-info-t">{c.hrs}</div>
                   <div className="pmj-info-v">{c.hrsVal}</div>
-                  <div className="pmj-info-s">{EN ? '24/7 dispatch for active contracts' : 'Dispatch 24/7 untuk kontrak aktif'}</div>
+                  <div className="pmj-info-s">{EN ? 'Saturday & Sunday Closed*' : 'Sabtu Minggu Libur*'}</div>
                 </div>
               </div>
             </Reveal>
 
             <Reveal as="form" className="pmj-form" onSubmit={onSubmit} noValidate>
-              <h3>{EN ? 'Request a quote' : 'Minta penawaran'}</h3>
+              <h3>{EN ? 'Contact Us' : 'Hubungi Kami'}</h3>
 
               {/* honeypot (hidden from humans) */}
               <input
@@ -155,8 +164,8 @@ export default function ContactPage() {
                   <input required placeholder={EN ? 'Jane Doe' : 'Budi Santoso'} value={form.name} onChange={set('name')} />
                 </div>
                 <div className="pmj-field">
-                  <label>{EN ? 'Company' : 'Perusahaan'}</label>
-                  <input placeholder={EN ? 'PT Example' : 'PT Contoh'} value={form.company} onChange={set('company')} />
+                  <label>{EN ? 'company / institution' : 'Perusahaan / Instansi'}</label>
+                  <input required placeholder={EN ? 'PT Example' : 'PT Contoh'} value={form.company} onChange={set('company')} />
                 </div>
               </div>
               <div className="pmj-form-row">
@@ -166,21 +175,22 @@ export default function ContactPage() {
                 </div>
                 <div className="pmj-field">
                   <label>{c.ph}</label>
-                  <input type="tel" placeholder="+62 ..." value={form.phone} onChange={set('phone')} />
+                  <input type="tel" required placeholder="+62 ..." value={form.phone} onChange={set('phone')} />
                 </div>
               </div>
               <div className="pmj-field">
                 <label>{EN ? 'Service of interest' : 'Layanan yang diminati'}</label>
-                <select value={form.service} onChange={set('service')}>
-                  <option value="">{EN ? '— select —' : '— pilih —'}</option>
+                <select required value={form.service} onChange={set('service')}>
+                  <option value="">{EN ? 'Select Category' : 'Pilih Kategori'}</option>
                   <option>{t.services.s1t}</option>
                   <option>{t.services.s2t}</option>
                   <option>{t.services.s3t}</option>
-                  <option>{EN ? 'Multiple services' : 'Beberapa layanan'}</option>
+                  <option>{EN ? 'Career' : 'Karir'}</option>
+                  <option>{EN ? 'Others' : 'Lainnya'}</option>
                 </select>
               </div>
               <div className="pmj-field">
-                <label>{EN ? 'Project details' : 'Rincian proyek'}</label>
+                <label>{EN ? 'details' : 'Detail'}</label>
                 <textarea
                   required
                   placeholder={EN ? 'Lane, tonnage, timeline...' : 'Rute, tonase, timeline...'}
@@ -188,12 +198,16 @@ export default function ContactPage() {
                   onChange={set('details')}
                 />
               </div>
-              <button className="pmj-btn pmj-btn-primary" type="submit" disabled={status.state === 'sending'}>
+              <button className="pmj-btn pmj-btn-primary" type="submit" disabled={status.state === 'sending' || !isFormValid}>
                 {status.state === 'sending'
                   ? EN ? 'Sending…' : 'Mengirim…'
                   : EN ? 'Send message' : 'Kirim pesan'}
                 <ArrowIcon />
               </button>
+              <p className="pmj-small pmj-muted" style={{ marginTop: 10 }}>
+                {EN ? 'By submitting, you agree to our ' : 'Dengan mengirim, Anda menyetujui '}
+                <Link href="/privacy-policy">{EN ? 'Privacy Policy' : 'Kebijakan Privasi'}</Link>.
+              </p>
               <div
                 className="pmj-small pmj-muted"
                 style={{

@@ -14,9 +14,11 @@ export default function GalleryPage() {
   return (
     <div>
       <section className="pmj-page-hero">
-        <div className="pmj-page-hero-media">
-          <img src={PMJ_GALLERY[0]} alt="" />
-        </div>
+        <div
+          className="pmj-page-hero-media pmj-noprotect"
+          style={{ backgroundImage: `url(${PMJ_GALLERY[0]})` }}
+          onContextMenu={(e) => e.preventDefault()}
+        />
         <div className="pmj-container pmj-page-hero-inner">
           <div className="pmj-breadcrumb">
             <Link href="/">{t.nav.home}</Link> / <span>{t.nav.gallery}</span>
@@ -24,8 +26,8 @@ export default function GalleryPage() {
           <h1>{t.gallery.title}</h1>
           <p className="pmj-sub">
             {EN
-              ? 'From the Pontianak mill floor to the dispatch yard in Bekasi — scenes from our 2026 operations.'
-              : 'Dari lantai mill Pontianak hingga halaman dispatch di Bekasi — potret operasi 2026 kami.'}
+              ? 'scenes from our recent operations.'
+              : 'potret operasi terkini kami.'}
           </p>
         </div>
       </section>
@@ -35,7 +37,13 @@ export default function GalleryPage() {
           <Reveal className="pmj-gal-grid">
             {PMJ_GALLERY.map((src, i) => (
               <div key={src} className={`pmj-gal-item ${SPANS[i] || ''}`}>
-                <img src={src} alt={`PMJ operations photo ${i + 1}`} loading="lazy" />
+                <div
+                  className="pmj-gal-img pmj-noprotect"
+                  style={{ backgroundImage: `url(${src})` }}
+                  role="img"
+                  aria-label={`PMJ operations photo ${i + 1}`}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
               </div>
             ))}
           </Reveal>
