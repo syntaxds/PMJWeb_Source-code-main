@@ -90,7 +90,14 @@ const categoryMap = {
 const filterToCategory = {
   en: { All: null, ...Object.fromEntries(DIVISIONS.map((d) => [d, d])) },
   id: { Semua: null, ...Object.fromEntries(DIVISIONS.map((d) => [d, d])) },
-};
+}
+
+const OPEN_JOB_IDS = [ ];
+
+const noOpenJobs = {
+  en: { noOpenJobs: 'There are no open positions at the moment. Please check back later or send a general application at contact page.', },
+  id: { noOpenJobs: 'Saat ini tidak ada posisi yang tersedia. Silakan cek kembali nanti atau kirimkan lamaran umum Anda di laman kontak.', },
+}
 
 // ─── Job Data (bilingual) ──────────────────────────────────────────────────────
 const jobs = [
@@ -645,8 +652,9 @@ export default function CareerPage() {
   const t = ui[lang];
   const jobLang = lang === 'en' ? 'en' : 'ind';
   const activeCategory = filterToCategory[lang][t.categories[activeFilter]];
-  const filteredJobs = jobs.filter((j) => j.open !== false && (!activeCategory || j.category === activeCategory));
-
+  const openJobs = jobs.filter((j) => OPEN_JOB_IDS.includes(j.jobId));
+  const filteredJobs = openJobs.filter((j) => !activeCategory || j.category === activeCategory);
+  
   // lock body scroll while modal is open
   useEffect(() => {
     if (selectedJob) {
@@ -725,92 +733,100 @@ export default function CareerPage() {
             <p className="pmj-section-sub">{t.openPositionsDesc}</p>
           </Reveal>
 
-          {/* Filter chips */}
-          <div className="pmj-career-filters" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 40 }}>
-            {t.categories.map((cat, idx) => {
-              const active = activeFilter === idx;
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setActiveFilter(idx)}
-                  style={{
-                    padding: '8px 18px',
-                    borderRadius: 4,
-                    fontSize: 13,
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all .2s',
-                    border: active ? '1px solid var(--pmj-red)' : '1px solid var(--pmj-line)',
-                    background: active ? 'var(--pmj-red)' : '#fff',
-                    color: active ? '#fff' : 'var(--pmj-gray-700)',
-                    fontFamily: 'inherit',
-                  }}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Job grid */}
-          {filteredJobs.length === 0 ? (
+          {openJobs.length === 0 ? (
             <div style={{ padding: '80px 0', textAlign: 'center', color: 'var(--pmj-gray-500)', fontSize: 16 }}>
-              {t.noPositions}
+              {noOpenJobs[lang].noOpenJobs}
             </div>
           ) : (
-            <div className="pmj-career-grid">
-              {filteredJobs.map((job) => {
-                const d = job[jobLang];
-                return (
-                  <Reveal key={job.jobId} className="pmj-career-card">
-                    <div className="pmj-career-card-accent" />
-                    <div style={{ padding: 28, display: 'flex', flexDirection: 'column', flex: 1 }}>
-                      <div className="pmj-kicker" style={{ marginBottom: 14 }}>
-                        {categoryMap[lang][job.category]}
-                      </div>
-                      <h3 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 4px', letterSpacing: '-0.01em', lineHeight: 1.2 }}>
-                        {d.title}
-                      </h3>
-                      {d.subtitle && (
-                        <div style={{ fontSize: 14, color: 'var(--pmj-gray-500)', fontWeight: 500, marginBottom: 12 }}>
-                          {d.subtitle}
+            <>
+              {/* Filter chips */}
+              <div className="pmj-career-filters" style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 40 }}>
+                {t.categories.map((cat, idx) => {
+                  const active = activeFilter === idx;
+                  return (
+                    <button
+                      key={cat}
+                      type="button"
+                      onClick={() => setActiveFilter(idx)}
+                      style={{
+                        padding: '8px 18px',
+                        borderRadius: 4,
+                        fontSize: 13,
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        transition: 'all .2s',
+                        border: active ? '1px solid var(--pmj-red)' : '1px solid var(--pmj-line)',
+                        background: active ? 'var(--pmj-red)' : '#fff',
+                        color: active ? '#fff' : 'var(--pmj-gray-700)',
+                        fontFamily: 'inherit',
+                      }}
+                    >
+                      {cat}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Job grid */}
+              {filteredJobs.length === 0 ? (
+                <div style={{ padding: '80px 0', textAlign: 'center', color: 'var(--pmj-gray-500)', fontSize: 16 }}>
+                  {t.noPositions}
+                </div>
+              ) : (
+                <div className="pmj-career-grid">
+                  {filteredJobs.map((job) => {
+                    const d = job[jobLang];
+                    return (
+                      <Reveal key={job.jobId} className="pmj-career-card">
+                        <div className="pmj-career-card-accent" />
+                        <div style={{ padding: 28, display: 'flex', flexDirection: 'column', flex: 1 }}>
+                          <div className="pmj-kicker" style={{ marginBottom: 14 }}>
+                            {categoryMap[lang][job.category]}
+                          </div>
+                          <h3 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 4px', letterSpacing: '-0.01em', lineHeight: 1.2 }}>
+                            {d.title}
+                          </h3>
+                          {d.subtitle && (
+                            <div style={{ fontSize: 14, color: 'var(--pmj-gray-500)', fontWeight: 500, marginBottom: 12 }}>
+                              {d.subtitle}
+                            </div>
+                          )}
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, margin: '12px 0 16px', fontSize: 13, color: 'var(--pmj-gray-500)' }}>
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                              <MapPin size={14} color="var(--pmj-red)" />{job.location}
+                            </span>
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                              <Briefcase size={14} color="var(--pmj-gray-500)" />{job.type}
+                            </span>
+                          </div>
+                          <p style={{ fontSize: 14, color: 'var(--pmj-gray-700)', lineHeight: 1.55, margin: '0 0 24px', flex: 1 }}>
+                            {d.description}
+                          </p>
+                          <div style={{ display: 'flex', gap: 10, marginTop: 'auto' }}>
+                            <button
+                              type="button"
+                              onClick={() => setSelectedJob(job)}
+                              className="pmj-btn pmj-btn-primary"
+                              style={{ flex: 1, padding: '12px 18px', fontSize: 13 }}
+                            >
+                              {t.viewDetails}
+                              <ArrowIcon />
+                            </button>
+                            <a
+                              href={`mailto:recruitment@pmjsystem.com?subject=${encodeURIComponent((lang === 'en' ? '[Job Application] ' : '[Lamaran Kerja] ') + d.title + ' – PT Padas Mustapa Jaya')}&body=${encodeURIComponent(buildEmailBody(lang, d.title, job.location, job.type))}`}
+                              className="pmj-btn pmj-btn-dark"
+                              style={{ flex: 1, padding: '12px 18px', fontSize: 13, justifyContent: 'center' }}
+                            >
+                              {t.applyNow}
+                            </a>
+                          </div>
                         </div>
-                      )}
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, margin: '12px 0 16px', fontSize: 13, color: 'var(--pmj-gray-500)' }}>
-                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                          <MapPin size={14} color="var(--pmj-red)" />{job.location}
-                        </span>
-                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                          <Briefcase size={14} color="var(--pmj-gray-500)" />{job.type}
-                        </span>
-                      </div>
-                      <p style={{ fontSize: 14, color: 'var(--pmj-gray-700)', lineHeight: 1.55, margin: '0 0 24px', flex: 1 }}>
-                        {d.description}
-                      </p>
-                      <div style={{ display: 'flex', gap: 10, marginTop: 'auto' }}>
-                        <button
-                          type="button"
-                          onClick={() => setSelectedJob(job)}
-                          className="pmj-btn pmj-btn-primary"
-                          style={{ flex: 1, padding: '12px 18px', fontSize: 13 }}
-                        >
-                          {t.viewDetails}
-                          <ArrowIcon />
-                        </button>
-                        <a
-                          href={`mailto:recruitment@pmjsystem.com?subject=${encodeURIComponent((lang === 'en' ? '[Job Application] ' : '[Lamaran Kerja] ') + d.title + ' – PT Padas Mustapa Jaya')}&body=${encodeURIComponent(buildEmailBody(lang, d.title, job.location, job.type))}`}
-                          className="pmj-btn pmj-btn-dark"
-                          style={{ flex: 1, padding: '12px 18px', fontSize: 13, justifyContent: 'center' }}
-                        >
-                          {t.applyNow}
-                        </a>
-                      </div>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
+                      </Reveal>
+                    );
+                  })}
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>
